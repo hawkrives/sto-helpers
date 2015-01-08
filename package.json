@@ -1,6 +1,6 @@
 {
   "name": "sto-helpers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An assortment of helper functions for sto-scheduler and sto-areas",
   "main": "index.js",
   "scripts": {
