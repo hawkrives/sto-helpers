@@ -1,0 +1,32 @@
+{
+  "name": "sto-helpers",
+  "version": "1.0.0",
+  "description": "An assortment of helper functions for sto-scheduler and sto-areas",
+  "main": "index.js",
+  "scripts": {
+    "build": "6to5 src --out-dir lib",
+    "watch": "6to5 --watch src --out-dir lib",
+    "test": "mocha"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "6to5": "^2.9.0",
+    "mocha": "^2.1.0",
+    "should": "^4.4.4"
+  },
+  "repository": "hawkrives/sto-helpers",
+  "keywords": [
+    "stolaf",
+    "sto-scheduler"
+  ],
+  "author": "Hawken M. Rives",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hawkrives/sto-helpers/issues"
+  }
+}
