@@ -6,6 +6,7 @@
   "scripts": {
     "build": "6to5 src --out-dir lib",
     "watch": "6to5 --watch src --out-dir lib",
+    "push": "./bin/publish.sh",
     "test": "mocha"
   },
   "files": [
