@@ -1,4 +1,4 @@
-import {hasDeptNumBetween} from './deptNum'
+import hasDeptNumBetween from './hasDeptNumBetween'
 
 /**
  * Only one SPM course credit may be earned by students as a result of
