@@ -1,0 +1,7 @@
+node_modules/
+bin/
+src/
+test/
+.gitignore
+.jscsrc
+CHANGELOG.md
