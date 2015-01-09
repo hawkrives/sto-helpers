@@ -1,6 +1,5 @@
-// tests/findMissingNumberBinarySearch.test.js
-import should from 'should'
-import findMissingNumberBinarySearch from '../src/findMissingNumberBinarySearch'
+// test/findMissingNumberBinarySearch.test.js
+import findMissingNumberBinarySearch from '../lib/findMissingNumberBinarySearch'
 
 describe('findMissingNumberBinarySearch', () => {
 	it('takes a list of numbers and finds the first gap', () => {
@@ -10,13 +9,13 @@ describe('findMissingNumberBinarySearch', () => {
 			[0, 3, 4],
 		]
 
-		should(findMissingNumberBinarySearch(nums[0])).equal(null)
-		should(findMissingNumberBinarySearch(nums[0])).not.equal(4)
+		expect(findMissingNumberBinarySearch(nums[0])).to.equal(null)
+		expect(findMissingNumberBinarySearch(nums[0])).to.not.equal(4)
 
-		should(findMissingNumberBinarySearch(nums[1])).equal(null)
+		expect(findMissingNumberBinarySearch(nums[1])).to.equal(null)
 
 		// I mean, ideally this would return 1, but for now...
-		should(findMissingNumberBinarySearch(nums[2])).equal(2)
-		should(findMissingNumberBinarySearch(nums[2])).not.equal(1)
+		expect(findMissingNumberBinarySearch(nums[2])).to.equal(2)
+		expect(findMissingNumberBinarySearch(nums[2])).to.not.equal(1)
 	})
 })

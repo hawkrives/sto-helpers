@@ -1,5 +1,5 @@
 // test/acrossAtLeastTwoDepartments.test.js
-import acrossAtLeastTwoDepartments from '../src/acrossAtLeastTwoDepartments'
+import acrossAtLeastTwoDepartments from '../lib/acrossAtLeastTwoDepartments'
 
 describe('acrossAtLeastTwoDepartments', () => {
 	it('checks that a set of courses spans at least two departments', () => {
@@ -8,7 +8,7 @@ describe('acrossAtLeastTwoDepartments', () => {
 			{depts: ['AMCON']},
 		]
 
-		acrossAtLeastTwoDepartments(courses).should.be.true
+		expect(acrossAtLeastTwoDepartments(courses)).to.be.true
 	})
 
 	it('fails if the courses don\'t cover two departments', () => {
@@ -17,12 +17,12 @@ describe('acrossAtLeastTwoDepartments', () => {
 			{depts: ['ASIAN']},
 		]
 
-		acrossAtLeastTwoDepartments(courses).should.be.false
+		expect(acrossAtLeastTwoDepartments(courses)).to.be.false
 	})
 
 	it('allows one course to span multiple departments', () => {
 		let courses = [{depts: ['ASIAN', 'REL']}]
 
-		acrossAtLeastTwoDepartments(courses).should.be.true
+		expect(acrossAtLeastTwoDepartments(courses)).to.be.true
 	})
 })

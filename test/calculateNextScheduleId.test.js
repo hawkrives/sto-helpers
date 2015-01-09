@@ -1,5 +1,5 @@
-// tests/calculateNextScheduleId-test.js
-import calculateNextScheduleId from '../src/calculateNextScheduleId'
+// test/calculateNextScheduleId.test.js
+import calculateNextScheduleId from '../lib/calculateNextScheduleId'
 
 describe('calculateNextScheduleId', () => {
 	it('calculates the next available schedule id', () => {
@@ -20,6 +20,6 @@ describe('calculateNextScheduleId', () => {
 			'14': {'id': 14},
 		}
 
-		calculateNextScheduleId(schedules).should.equal(15)
+		expect(calculateNextScheduleId(schedules)).to.equal(15)
 	})
 })

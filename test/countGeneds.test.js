@@ -1,5 +1,5 @@
-// sto-areas/test/lib-countGeneds.test.js
-import countGeneds from '../src/countGeneds'
+// test/countGeneds.test.js
+import countGeneds from '../lib/countGeneds'
 
 describe('countGeneds', () => {
 	it('counts the number of occurrences of a gened in a list of courses', () => {
@@ -8,7 +8,7 @@ describe('countGeneds', () => {
 			{crsid: 2, gereqs: ['HWC']},
 		]
 
-		countGeneds(courses, 'HWC').should.equal(2)
+		expect(countGeneds(courses, 'HWC')).to.equal(2)
 	})
 
 	it('shouldn\'t count other geneds', () => {
@@ -17,7 +17,7 @@ describe('countGeneds', () => {
 			{crsid: 2, gereqs: ['HWC']},
 		]
 
-		countGeneds(courses, 'HWC').should.equal(2)
+		expect(countGeneds(courses, 'HWC')).to.equal(2)
 	})
 
 	it('counts all FOL-* as FOL', () => {
@@ -26,7 +26,7 @@ describe('countGeneds', () => {
 			{crsid: 2, gereqs: ['FOL-C']},
 		]
 
-		countGeneds(courses, 'FOL').should.equal(2)
+		expect(countGeneds(courses, 'FOL')).to.equal(2)
 	})
 
 	it('de-duplicates the courses before checking for geneds', () => {
@@ -35,6 +35,6 @@ describe('countGeneds', () => {
 			{crsid: 1, gereqs: ['HWC']},
 		]
 
-		countGeneds(courses, 'HWC').should.equal(1)
+		expect(countGeneds(courses, 'HWC')).to.equal(1)
 	})
 })

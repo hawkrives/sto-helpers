@@ -1,5 +1,5 @@
-// tests/countCredits-test.js
-import countCredits from '../src/countCredits'
+// test/countCredits.test.js
+import countCredits from '../lib/countCredits'
 
 describe('countCredits', () => {
 	it('counts the number of credits in a list of courses', () => {
@@ -11,6 +11,6 @@ describe('countCredits', () => {
 			{credits: 1},
 		]
 
-		countCredits(courses).should.equal(3.5)
+		expect(countCredits(courses)).to.equal(3.5)
 	})
 })

@@ -1,8 +1,8 @@
-// tests/partialTitle-test.js
+// test/partialTitle.test.js
 import {
 	partialTitle,
 	partialName,
-	partialNameOrTitle} from '../src/partialTitle'
+	partialNameOrTitle} from '../lib/partialTitle'
 
 describe('partialTitle', () => {
 	let courses = []
@@ -22,21 +22,21 @@ describe('partialTitle', () => {
 	})
 
 	it('checks if a course has a matching string in the title', () => {
-		partialTitle('Asia', courses[0]).should.be.true
-		partialTitle('Dance', courses[1]).should.be.true
-		partialTitle('Japanese', courses[4]).should.be.true
+		expect(partialTitle('Asia', courses[0])).to.be.true
+		expect(partialTitle('Dance', courses[1])).to.be.true
+		expect(partialTitle('Japanese', courses[4])).to.be.true
 	})
 
 	it('checks if a course has a matching string in the name', () => {
-		partialName('Asia', courses[0]).should.be.true
-		partialName('Dance', courses[1]).should.be.true
-		partialName('Japanese', courses[4]).should.be.true
+		expect(partialName('Asia', courses[0])).to.be.true
+		expect(partialName('Dance', courses[1])).to.be.true
+		expect(partialName('Japanese', courses[4])).to.be.true
 	})
 
 	it('checks if a course has a matching string in either the title or the name', () => {
-		partialNameOrTitle('Asia', courses[0]).should.be.true
-		partialNameOrTitle('Dance', courses[1]).should.be.true
-		partialNameOrTitle('Japanese', courses[4]).should.be.true
-		partialNameOrTitle('China', courses[4]).should.be.false
+		expect(partialNameOrTitle('Asia', courses[0])).to.be.true
+		expect(partialNameOrTitle('Dance', courses[1])).to.be.true
+		expect(partialNameOrTitle('Japanese', courses[4])).to.be.true
+		expect(partialNameOrTitle('China', courses[4])).to.be.false
 	})
 })

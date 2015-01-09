@@ -1,11 +1,11 @@
-// tests/getRandomInt.test.js
-import getRandomInt from '../src/getRandomInt'
+// test/getRandomInt.test.js
+import getRandomInt from '../lib/getRandomInt'
 
 describe('getRandomInt', () => {
 	it('finds a random integer between the parameters', () => {
-		getRandomInt(1, 3).should.be.within(0, 4)
-		getRandomInt(0, 3).should.be.within(-1, 4)
-		getRandomInt(1, 5).should.be.within(0, 6)
-		getRandomInt(1, 3).should.be.within(0, 4)
+		expect(getRandomInt(1, 3)).to.be.within(1, 3)
+		expect(getRandomInt(0, 3)).to.be.within(0, 3)
+		expect(getRandomInt(1, 5)).to.be.within(1, 5)
+		expect(getRandomInt(1, 3)).to.be.within(1, 3)
 	})
 })

@@ -1,5 +1,5 @@
-// tests/findFirstAvailableYear.test.js
-import findFirstAvailableYear from '../src/findFirstAvailableYear'
+// test/findFirstAvailableYear.test.js
+import findFirstAvailableYear from '../lib/findFirstAvailableYear'
 
 describe('findFirstAvailableYear', () => {
 	it('takes a list of schedules and finds the first open year', () => {
@@ -9,17 +9,18 @@ describe('findFirstAvailableYear', () => {
 			{'id': 1, 'year': 2015},
 		]
 
-		findFirstAvailableYear(schedules).should.equal(2014)
-		findFirstAvailableYear(schedules).should.not.equal(2016)
+		expect(findFirstAvailableYear(schedules)).to.equal(2014)
+		expect(findFirstAvailableYear(schedules)).to.not.equal(2016)
+	})
 
-
-		let altScheds = [
+	it('accomodates a matriculation date before the schedules', () => {
+		let schedules = [
 			{'id': 3, 'year': 2014},
 			{'id': 6, 'year': 2013},
 			{'id': 1, 'year': 2015},
 		]
-		let altMatriculation = 2012
+		let matriculation = 2012
 
-		findFirstAvailableYear(altScheds, altMatriculation).should.equal(2012)
+		expect(findFirstAvailableYear(schedules, matriculation)).to.equal(2012)
 	})
 })

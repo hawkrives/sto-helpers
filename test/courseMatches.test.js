@@ -1,5 +1,5 @@
-// sto-areas/test/lib-courseMatches.test.js
-import courseMatches from '../src/courseMatches'
+// test/courseMatches.test.js
+import courseMatches from '../lib/courseMatches'
 
 describe('courseMatches', () => {
 	it('checks if a course matches any qualifiers in a list of qualifiers', () => {
@@ -17,7 +17,7 @@ describe('courseMatches', () => {
 
 		let course = {deptnum: 'ESTH 290'}
 
-		courseMatches(qualifiers, course).should.be.true
+		expect(courseMatches(qualifiers, course)).to.be.true
 	})
 
 	it('should be curried', () => {
@@ -35,6 +35,6 @@ describe('courseMatches', () => {
 
 		let course = {deptnum: 'ESTH 290'}
 
-		courseMatches(qualifiers)(course).should.be.true
+		expect(courseMatches(qualifiers)(course)).to.be.true
 	})
 })
