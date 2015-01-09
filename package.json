@@ -15,19 +15,12 @@
     "test": "npm run test-function && npm run test-style",
     "watch-tests": "nodemon --watch test/ --exec 'npm run test-function'"
   },
-  "browserify": {
-    "transform": [
-      "6to5ify"
-    ]
-  },
   "dependencies": {
     "lodash": "^2.4.1"
   },
   "devDependencies": {
     "6to5": "^2.9.3",
-    "6to5ify": "^3.1.0",
     "chai": "^1.10.0",
-    "chai-as-promised": "^4.1.1",
     "jscs": "^1.9.0",
     "jscs-jsdoc": "^0.4.0",
     "mocha": "^2.1.0",
