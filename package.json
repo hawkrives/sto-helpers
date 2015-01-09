@@ -7,10 +7,11 @@
   "author": "Hawken M. Rives",
   "license": "MIT",
   "scripts": {
-    "build": "6to5 src --out-dir lib",
-    "watch": "6to5 --watch src --out-dir lib",
     "push": "./bin/publish.sh",
-    "test": "mocha"
+    "test-function": "mocha",
+    "test-style": "jscs ./",
+    "test": "npm run test-function && npm run test-style",
+    "watch-tests": "nodemon --watch test/ --exec 'npm run test-function'"
   },
   "browserify": {
     "transform": [
