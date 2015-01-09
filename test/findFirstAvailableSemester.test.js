@@ -1,5 +1,5 @@
-// tests/findFirstAvailableSemester.test.js
-import findFirstAvailableSemester from '../src/findFirstAvailableSemester'
+// test/findFirstAvailableSemester.test.js
+import findFirstAvailableSemester from '../lib/findFirstAvailableSemester'
 
 describe('findFirstAvailableSemester', () => {
 	let schedules = [
@@ -22,10 +22,10 @@ describe('findFirstAvailableSemester', () => {
 	]
 
 	it('takes a list of schedules and finds the first open semester', () => {
-		findFirstAvailableSemester(schedules, 2012).should.equal(4)
-		findFirstAvailableSemester(schedules, 2013).should.equal(3)
-		findFirstAvailableSemester(schedules, 2014).should.equal(3)
-		findFirstAvailableSemester(schedules, 2015).should.equal(1)
-		findFirstAvailableSemester(schedules, 2016).should.equal(1)
+		expect(findFirstAvailableSemester(schedules, 2012)).to.equal(4)
+		expect(findFirstAvailableSemester(schedules, 2013)).to.equal(3)
+		expect(findFirstAvailableSemester(schedules, 2014)).to.equal(3)
+		expect(findFirstAvailableSemester(schedules, 2015)).to.equal(1)
+		expect(findFirstAvailableSemester(schedules, 2016)).to.equal(1)
 	})
 })

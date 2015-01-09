@@ -1,36 +1,38 @@
 {
   "name": "sto-helpers",
-  "version": "1.0.1",
   "description": "An assortment of helper functions for sto-scheduler and sto-areas",
+  "version": "1.0.2",
   "main": "index.js",
+  "repository": "hawkrives/sto-helpers",
+  "author": "Hawken M. Rives",
+  "license": "MIT",
   "scripts": {
-    "build": "6to5 src --out-dir lib",
-    "watch": "6to5 --watch src --out-dir lib",
     "push": "./bin/publish.sh",
-    "test": "mocha"
+    "test-function": "mocha",
+    "test-style": "jscs ./",
+    "test": "npm run test-function && npm run test-style",
+    "watch-tests": "nodemon --watch test/ --exec 'npm run test-function'"
   },
-  "files": [
-    "lib"
-  ],
-  "directories": {
-    "test": "test"
+  "browserify": {
+    "transform": [
+      "6to5ify"
+    ]
   },
   "dependencies": {
     "lodash": "^2.4.1"
   },
   "devDependencies": {
-    "6to5": "^2.9.0",
+    "6to5-core": "^2.9.0",
+    "6to5ify": "^3.1.0",
+    "chai": "^1.10.0",
+    "chai-as-promised": "^4.1.1",
+    "jscs": "^1.9.0",
+    "jscs-jsdoc": "^0.4.0",
     "mocha": "^2.1.0",
-    "should": "^4.4.4"
+    "nodemon": "^1.2.1"
   },
-  "repository": "hawkrives/sto-helpers",
   "keywords": [
     "stolaf",
     "sto-scheduler"
-  ],
-  "author": "Hawken M. Rives",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/hawkrives/sto-helpers/issues"
-  }
+  ]
 }

@@ -1,18 +1,24 @@
-// tests/hasDepartment.test.js
-import hasDepartment from '../src/hasDepartment'
+// test/hasDepartment.test.js
+import hasDepartment from '../lib/hasDepartment'
 
 describe('hasDepartment', () => {
 	it('checks if a course is in a department', () => {
-		let courses = [
-			{depts: ['ASIAN', 'REL'], num: 230},
-			{depts: ['BIO', 'CHEM'], num: 125},
-			{depts: ['CHEM', 'BIO'], num: 125},
-			{depts: ['ASIAN'], num: 175},
-		]
+		let course = {depts: ['ASIAN'], num: 175}
 
-		hasDepartment('ASIAN', courses[0]).should.be.true
-		hasDepartment('BIO', courses[1]).should.be.true
-		hasDepartment('CHEM', courses[2]).should.be.true
-		hasDepartment('REL', courses[3]).should.be.false
+		expect(hasDepartment('ASIAN', course)).to.be.true
+	})
+
+	it('handles cross-disciplinary courses', () => {
+		let course = {depts: ['ASIAN', 'REL'], num: 230}
+
+		expect(hasDepartment('REL', course)).to.be.true
+	})
+
+	it('cares not about the ordering of departments', () => {
+		let course1 = {depts: ['BIO', 'CHEM'], num: 125}
+		let course2 = {depts: ['CHEM', 'BIO'], num: 125}
+
+		expect(hasDepartment('BIO', course1)).to.be.true
+		expect(hasDepartment('CHEM', course2)).to.be.true
 	})
 })

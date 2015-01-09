@@ -1,13 +1,14 @@
-// tests/semesterName.test.js
-import semesterName from '../src/semesterName'
+// test/semesterName.test.js
+import semesterName from '../lib/semesterName'
 
 describe('semesterName', () => {
 	it('converts a semester number to a semester name', () => {
-		semesterName(0).should.equal('Unknown (0)')
-		semesterName(1).should.equal('Fall')
-		semesterName(2).should.equal('Interim')
-		semesterName(3).should.equal('Spring')
-		semesterName(4).should.equal('Early Summer')
-		semesterName(5).should.equal('Late Summer')
+		expect(semesterName(0)).to.equal('Unknown (0)')
+		expect(semesterName(1)).to.equal('Fall')
+		expect(semesterName(2)).to.equal('Interim')
+		expect(semesterName(3)).to.equal('Spring')
+		expect(semesterName(4)).to.equal('Early Summer')
+		expect(semesterName(5)).to.equal('Late Summer')
+		expect(semesterName(6)).to.equal('Unknown (6)')
 	})
 })

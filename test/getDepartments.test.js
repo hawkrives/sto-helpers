@@ -1,5 +1,5 @@
-// sto-areas/test/lib-countGeneds.test.js
-import getDepartments from '../src/getDepartments'
+// test/getDepartments.test.js
+import getDepartments from '../lib/getDepartments'
 
 describe('getDepartments', () => {
 	it('plucks departments from a list of courses', () => {
@@ -8,7 +8,7 @@ describe('getDepartments', () => {
 			{depts: ['AMCON']},
 		]
 
-		getDepartments(courses).should.eql(['ASIAN', 'AMCON'])
+		expect(getDepartments(courses)).to.eql(['ASIAN', 'AMCON'])
 	})
 
 	it('de-duplicates the gathered departments', () => {
@@ -17,6 +17,6 @@ describe('getDepartments', () => {
 			{depts: ['AMCON']},
 		]
 
-		getDepartments(courses).should.eql(['ASIAN', 'AMCON'])
+		expect(getDepartments(courses)).to.eql(['ASIAN', 'AMCON'])
 	})
 })

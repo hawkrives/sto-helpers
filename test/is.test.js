@@ -1,9 +1,12 @@
-// tests/is-test.js
-import {isTrue} from '../src/is'
+// test/is.test.js
+import {isTrue} from '../lib/is'
 
 describe('isTrue', () => {
 	it('checks if a thing is true', () => {
-		isTrue(1).should.be.false
-		isTrue(true).should.be.true
+		expect(isTrue(true)).to.be.true
+	})
+
+	it('does not return for a merely truthy value', () => {
+		expect(isTrue(1)).to.be.false
 	})
 })

@@ -1,8 +1,12 @@
-// tests/add.test.js
-import add from '../src/add'
+// test/add.test.js
+import add from '../lib/add'
 
 describe('add', () => {
-	it('adds 1 + 2 to equal 3', () => {
-		add(1, 2).should.equal(3)
+	it('handles positive numbers', () => {
+		expect(add(1, 2)).to.equal(3)
+	})
+
+	it('supports negative numbers', () => {
+		expect(add(-1, -2)).to.equal(-3)
 	})
 })
