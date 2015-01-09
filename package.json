@@ -7,6 +7,7 @@
   "author": "Hawken M. Rives",
   "license": "MIT",
   "scripts": {
+    "pre-publish": "6to5 src --out-dir lib",
     "push": "./bin/publish.sh",
     "test-function": "mocha",
     "test-style": "jscs ./",
@@ -22,7 +23,7 @@
     "lodash": "^2.4.1"
   },
   "devDependencies": {
-    "6to5-core": "^2.9.0",
+    "6to5": "^2.9.3",
     "6to5ify": "^3.1.0",
     "chai": "^1.10.0",
     "chai-as-promised": "^4.1.1",
