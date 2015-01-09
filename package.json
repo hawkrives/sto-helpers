@@ -9,7 +9,7 @@
     "prepublish": "6to5 src --out-dir lib",
     "clean": "rm -rf lib/",
     "deep-clean": "rm -rf lib/ node_modules/",
-    "push": "./bin/publish.sh",
+    "release": "./bin/publish.sh",
     "test-function": "mocha",
     "test-style": "jscs ./src ./test",
     "test": "npm run test-function && npm run test-style",
