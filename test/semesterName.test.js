@@ -1,5 +1,5 @@
 // test/semesterName.test.js
-import semesterName from '../lib/semesterName'
+import semesterName from '../src/semesterName'
 
 describe('semesterName', () => {
 	it('converts a semester number to a semester name', () => {

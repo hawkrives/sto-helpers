@@ -1,5 +1,5 @@
 // test/courseMatches.test.js
-import courseMatches from '../lib/courseMatches'
+import courseMatches from '../src/courseMatches'
 
 describe('courseMatches', () => {
 	it('checks if a course matches any qualifiers in a list of qualifiers', () => {

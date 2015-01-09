@@ -1,5 +1,5 @@
 // test/isCurrentYear.test.js
-import {isCurrentYear} from '../lib/isCurrent'
+import {isCurrentYear} from '../src/isCurrent'
 
 describe('isCurrentYear', () => {
 	it('checks if a schedule is in the given year', () => {

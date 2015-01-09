@@ -1,5 +1,5 @@
 // test/countGeneds.test.js
-import countGeneds from '../lib/countGeneds'
+import countGeneds from '../src/countGeneds'
 
 describe('countGeneds', () => {
 	it('counts the number of occurrences of a gened in a list of courses', () => {

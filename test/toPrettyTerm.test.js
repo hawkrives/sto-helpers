@@ -1,5 +1,5 @@
 // test/toPrettyTerm.test.js
-import toPrettyTerm from '../lib/toPrettyTerm'
+import toPrettyTerm from '../src/toPrettyTerm'
 
 describe('toPrettyTerm', () => {
 	it('converts a term id to a year and semester', () => {

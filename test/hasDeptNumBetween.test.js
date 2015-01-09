@@ -1,5 +1,5 @@
 // test/hasDeptNumBetween.test.js
-import hasDeptNumBetween from '../lib/hasDeptNumBetween'
+import hasDeptNumBetween from '../src/hasDeptNumBetween'
 
 describe('hasDeptNumBetween', () => {
 	it('returns true if a course\'s dept and num are between the parameters', () => {

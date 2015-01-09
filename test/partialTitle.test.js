@@ -2,7 +2,7 @@
 import {
 	partialTitle,
 	partialName,
-	partialNameOrTitle} from '../lib/partialTitle'
+	partialNameOrTitle} from '../src/partialTitle'
 
 describe('partialTitle', () => {
 	let courses = []

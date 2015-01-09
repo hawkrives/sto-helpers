@@ -1,5 +1,5 @@
 // test/findFirstAvailableYear.test.js
-import findFirstAvailableYear from '../lib/findFirstAvailableYear'
+import findFirstAvailableYear from '../src/findFirstAvailableYear'
 
 describe('findFirstAvailableYear', () => {
 	it('takes a list of schedules and finds the first open year', () => {

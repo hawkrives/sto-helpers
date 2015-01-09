@@ -1,5 +1,5 @@
 // test/splitDeptNum.test.js
-import splitDeptNum from '../lib/splitDeptNum'
+import splitDeptNum from '../src/splitDeptNum'
 
 describe('splitDeptNum', () => {
 	it('splits multi-department courses into components', () => {

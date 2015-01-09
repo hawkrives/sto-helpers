@@ -1,5 +1,5 @@
 // test/buildDept.test.js
-import buildDept from '../lib/buildDept'
+import buildDept from '../src/buildDept'
 
 describe('buildDept', () => {
 	it('builds a department string from a single-dept course', () => {

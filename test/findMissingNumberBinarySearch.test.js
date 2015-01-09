@@ -1,5 +1,5 @@
 // test/findMissingNumberBinarySearch.test.js
-import findMissingNumberBinarySearch from '../lib/findMissingNumberBinarySearch'
+import findMissingNumberBinarySearch from '../src/findMissingNumberBinarySearch'
 
 describe('findMissingNumberBinarySearch', () => {
 	it('takes a list of numbers and finds the first gap', () => {

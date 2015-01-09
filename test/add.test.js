@@ -1,5 +1,5 @@
 // test/add.test.js
-import add from '../lib/add'
+import add from '../src/add'
 
 describe('add', () => {
 	it('handles positive numbers', () => {

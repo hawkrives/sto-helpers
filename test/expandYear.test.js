@@ -1,5 +1,5 @@
 // test/expandYear.test.js
-import expandYear from '../lib/expandYear'
+import expandYear from '../src/expandYear'
 
 describe('expandYear', () => {
 	it('expands a year to year-(year+1)', () => {

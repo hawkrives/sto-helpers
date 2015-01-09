@@ -1,5 +1,5 @@
 // test/getDepartments.test.js
-import getDepartments from '../lib/getDepartments'
+import getDepartments from '../src/getDepartments'
 
 describe('getDepartments', () => {
 	it('plucks departments from a list of courses', () => {

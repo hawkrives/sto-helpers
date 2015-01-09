@@ -1,5 +1,5 @@
 // test/calculateNextScheduleId.test.js
-import calculateNextScheduleId from '../lib/calculateNextScheduleId'
+import calculateNextScheduleId from '../src/calculateNextScheduleId'
 
 describe('calculateNextScheduleId', () => {
 	it('calculates the next available schedule id', () => {

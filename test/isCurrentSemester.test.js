@@ -1,5 +1,5 @@
 // test/isCurrentSemester.test.js
-import {isCurrentSemester} from '../lib/isCurrent'
+import {isCurrentSemester} from '../src/isCurrent'
 
 describe('isCurrentSemester', () => {
 	it('checks if a schedule is in the given semester', () => {

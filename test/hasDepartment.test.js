@@ -1,5 +1,5 @@
 // test/hasDepartment.test.js
-import hasDepartment from '../lib/hasDepartment'
+import hasDepartment from '../src/hasDepartment'
 
 describe('hasDepartment', () => {
 	it('checks if a course is in a department', () => {

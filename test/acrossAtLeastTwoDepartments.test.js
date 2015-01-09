@@ -1,5 +1,5 @@
 // test/acrossAtLeastTwoDepartments.test.js
-import acrossAtLeastTwoDepartments from '../lib/acrossAtLeastTwoDepartments'
+import acrossAtLeastTwoDepartments from '../src/acrossAtLeastTwoDepartments'
 
 describe('acrossAtLeastTwoDepartments', () => {
 	it('checks that a set of courses spans at least two departments', () => {

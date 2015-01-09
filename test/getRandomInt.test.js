@@ -1,5 +1,5 @@
 // test/getRandomInt.test.js
-import getRandomInt from '../lib/getRandomInt'
+import getRandomInt from '../src/getRandomInt'
 
 describe('getRandomInt', () => {
 	it('finds a random integer between the parameters', () => {

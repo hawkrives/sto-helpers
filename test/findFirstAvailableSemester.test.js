@@ -1,5 +1,5 @@
 // test/findFirstAvailableSemester.test.js
-import findFirstAvailableSemester from '../lib/findFirstAvailableSemester'
+import findFirstAvailableSemester from '../src/findFirstAvailableSemester'
 
 describe('findFirstAvailableSemester', () => {
 	let schedules = [

@@ -1,5 +1,5 @@
 // test/randomChar.test.js
-import randomChar from '../lib/randomChar'
+import randomChar from '../src/randomChar'
 
 describe('randomChar', () => {
 	it('finds a random integer between the parameters', () => {
