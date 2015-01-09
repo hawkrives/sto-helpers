@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "prepublish": "6to5 src --out-dir lib",
+    "postpublish": "npm run clean",
     "clean": "rm -rf lib/",
     "deep-clean": "rm -rf lib/ node_modules/",
     "push": "./bin/publish.sh",
