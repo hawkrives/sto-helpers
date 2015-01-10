@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 2.1.0
+- Added parseAreaId
+- Added buildQueryFromString
+- Added queryCourses
+- Added zipToObjectWithArrays
+- Added oddIndex, evenIndex, and notEmptyString
+- Finished adding tests to helpers
+	- (which ones?)
+
+
 ## 2.0.6
 - Added a `postpublish` script to automatically clean up from `prepublish`
 
