@@ -9,32 +9,6 @@ import buildQueryFromString from './buildQueryFromString'
  * @returns {Boolean}
  */
 function queryCourses(courses, queryString) {
-	// Examples:
-
-	// 'dept: Computer Science  dept: Asian Studies  name: Parallel  level: 300  year: $OR year:2013 year: 2014'
-	// { depts: [ '$AND', 'CSCI', 'ASIAN' ],
-	//   title: [ 'Parallel' ],
-	//   level: [ 300 ],
-	//   year: [ '$OR', 2013, 2014 ] }
-
-	// 'dept: ASIAN  Dept: Religion  title: "Japan*"  LEVEL: 200  year: 2014  semester: $OR  semester: 3  semester: 1'
-	// { depts: [ '$AND', 'ASIAN', 'REL' ],
-	//   title: [ '"Japan*"' ],
-	//   level: [ 200 ],
-	//   year: [ 2014 ],
-	//   semester: [ '$OR', 3, 1 ] }
-
-	// 'department: American Conversations  name: Independence  year: 2014  time: Tuesdays after 12'
-	// { depts: [ 'AMCON' ],
-	//   title: [ 'Independence' ],
-	//   year: [ 2014 ],
-	//   time: [ 'Tuesdays after 12' ] }
-
-	// 'ges: $AND  geneds: history of western culture gened: HBS  semester: Spring  year: 2014'
-	// { geneds: [ '$AND', 'HWC', 'HBS' ],
-	//   semester: [ 3 ],
-	//   year: [ 2014 ] }
-
 	let query = buildQueryFromString(queryString)
 
 	console.log('query:', query)
