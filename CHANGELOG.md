@@ -1,6 +1,7 @@
 # CHANGELOG
 
-## 2.1.1
+## 2.2.0
+- Switched parameter order on `queryCourses`
 - Now completed initial testing of more helpers
 	- [x] checkCoursesFor
 	- [x] concatAndMerge
