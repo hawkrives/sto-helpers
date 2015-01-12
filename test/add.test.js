@@ -9,4 +9,8 @@ describe('add', () => {
 	it('supports negative numbers', () => {
 		expect(add(-1, -2)).to.equal(-3)
 	})
+
+	it('does not subtract numbers', () => {
+		expect(add(2, 1)).to.not.equal(1)
+	})
 })
