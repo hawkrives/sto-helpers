@@ -8,6 +8,8 @@ import {any} from 'lodash'
  * @returns {Boolean} - from _.any
  */
 function checkCoursesFor(courses, filter) {
+	if (filter == undefined)
+		return false
 	return any(courses, filter)
 }
 
