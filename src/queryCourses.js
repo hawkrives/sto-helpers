@@ -77,3 +77,5 @@ function queryCourses(courses, queryString) {
 
 	return results
 }
+
+export default queryCourses
