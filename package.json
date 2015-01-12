@@ -6,15 +6,16 @@
   "author": "Hawken M. Rives",
   "license": "MIT",
   "scripts": {
-    "prepublish": "6to5 src --out-dir lib",
+    "prepublish": "npm run build",
     "postpublish": "npm run clean",
-    "clean": "rm -rf lib/ dist/",
+    "build": "6to5 src --out-dir lib",
+    "clean": "rm -rf lib/",
     "deep-clean": "rm -rf lib/ node_modules/",
     "push": "./bin/publish.sh",
-    "test-function": "mocha",
-    "test-style": "jscs ./src ./test",
-    "test": "npm run test-function && npm run test-style",
-    "watch-tests": "nodemon --watch test/ --exec 'npm run test-function'"
+    "mocha": "mocha",
+    "jscs": "jscs ./src ./test",
+    "test": "npm run mocha && npm run jscs",
+    "watch-tests": "nodemon --watch test/ --watch src/ --exec 'npm run mocha'"
   },
   "dependencies": {
     "lodash": "^2.4.1",
