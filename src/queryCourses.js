@@ -28,7 +28,7 @@ function queryCourses(queryString, courses) {
 				// - one of the above, but substring
 
 				let hasBool = _.indexOf(values[0], '$') === 0
-				let OR = values[0] === '$OR'
+				let OR  = values[0] === '$OR'
 				let NOR = values[0] === '$NOR'
 				let AND = values[0] === '$AND'
 				let NOT = values[0] === '$NOT'
