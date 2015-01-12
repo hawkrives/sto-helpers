@@ -8,7 +8,7 @@
   "scripts": {
     "prepublish": "6to5 src --out-dir lib",
     "postpublish": "npm run clean",
-    "clean": "rm -rf lib/",
+    "clean": "rm -rf lib/ dist/",
     "deep-clean": "rm -rf lib/ node_modules/",
     "push": "./bin/publish.sh",
     "test-function": "mocha",
@@ -17,7 +17,8 @@
     "watch-tests": "nodemon --watch test/ --exec 'npm run test-function'"
   },
   "dependencies": {
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "sto-course-related-data": "^3.0.2"
   },
   "devDependencies": {
     "6to5": "^2.9.3",

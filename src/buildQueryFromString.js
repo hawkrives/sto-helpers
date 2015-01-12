@@ -5,7 +5,9 @@ import oddIndex from './oddIndex'
 import notEmptyString from './notEmptyString'
 import zipToObjectWithArrays from './zipToObjectWithArrays'
 
-import {departmentMapping, gereqMapping} from 'sto-course-related-data'
+import {
+	departmentNameToAbbr as departmentMapping,
+	gereqTitleToAbbr as gereqMapping} from 'sto-course-related-data'
 
 let semesters = {
 	'fall': 1,

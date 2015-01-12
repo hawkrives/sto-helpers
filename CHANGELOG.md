@@ -1,6 +1,7 @@
 # CHANGELOG
 
 ## 2.1.0
+- Required sto-related-course-data to validate departments and such
 - Added parseAreaId
 - Added buildQueryFromString
 - Added queryCourses
