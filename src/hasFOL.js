@@ -8,6 +8,6 @@ import {any} from 'lodash'
  * @returns {Boolean}
  */
 let hasFOL = (course) =>
-	any(course.gereqs, (req) => req.substr(0, 3) === 'FOL')
+	any(course.gereqs, (req) => req.startsWith('FOL'))
 
 export default hasFOL
