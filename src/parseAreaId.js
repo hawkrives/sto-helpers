@@ -13,7 +13,7 @@ let areaTypes = {
  * @returns {Object}
  */
 function parseAreaId(areaId) {
-	let [type, title] = id.split('-')
+	let [type, title] = areaId.split('-')
 	type = areaTypes[type]
 	return {type, title}
 }
