@@ -11,7 +11,7 @@ import buildQueryFromString from './buildQueryFromString'
 function queryCourses(queryString, courses) {
 	let query = buildQueryFromString(queryString)
 
-	console.log('query:', query)
+	// console.log('query:', query)
 
 	let results = _(courses)
 		.filter(course => {
