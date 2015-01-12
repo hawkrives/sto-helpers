@@ -4,11 +4,11 @@ import buildQueryFromString from './buildQueryFromString'
 /**
  * Queries the database for courses.
  *
- * @param {Array<Course>} courses
  * @param {String} queryString
- * @returns {Boolean}
+ * @param {Array<Course>} courses
+ * @returns {Array<Course>}
  */
-function queryCourses(courses, queryString) {
+function queryCourses(queryString, courses) {
 	let query = buildQueryFromString(queryString)
 
 	console.log('query:', query)
