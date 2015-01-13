@@ -28,7 +28,7 @@ function findFirstAvailableYear(schedules, matriculation) {
 
 	years = _.sortBy(years)
 
-	// log('findFirstAvailableYear', years.toJS())
+	// console.log('findFirstAvailableYear', years.toJS())
 
 	let missingNo = findMissingNumberBinarySearch(years)
 	if (missingNo !== null) {
