@@ -1,4 +1,4 @@
-import {curry, map, chain, indexOf, has, contains, isArray, some, all, compact, tail} from 'lodash'
+import {curry, map, chain, indexOf, has, contains, isArray, any, all, compact, tail} from 'lodash'
 
 /**
  * Checks if a course passes a query check.
