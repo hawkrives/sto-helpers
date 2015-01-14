@@ -1,7 +1,7 @@
 {
   "name": "sto-helpers",
   "description": "An assortment of helper functions for sto-scheduler and sto-areas",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "repository": "hawkrives/sto-helpers",
   "author": "Hawken M. Rives",
   "license": "MIT",
