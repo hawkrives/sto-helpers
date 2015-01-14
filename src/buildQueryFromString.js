@@ -140,6 +140,10 @@ function buildQueryFromString(queryString) {
 				val = parseInt(val, 10)
 			}
 
+			else if (_.contains(['title', 'name', 'notes', 'description'], key)) {
+				val = val.trim()
+			}
+
 			return val
 		})
 
