@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## 3.0.0
+- Update sto-course-related-data
+- **Change:** buildDept now normalizes departments
+- Extract buildDeptNumRegex into its own file
+- Add flag to splitDeptNum to return the section
+- **Added:** `quacksLikeDeptNum`
+- Use `quacksLikeDeptNum` to allow queryCourses to search for deptnums without the `deptnum:` prefix
+- **Change:** Edit deptNumRegex to require that course numbers be three numbers long
+- **Added:** `cartesianProduct`
+- **Added:** `combinations(list, k)` - finds `k` combinations of an array
+- *Change:* Use `lodash-node` instead of `lodash`
+
+## 2.2.2
+- Fix importing of the wrong function from lodash
+
+## 2.2.1
+- Pull checkcheckCourseAgainstQuery out of queryCourses.js
+- s/log/console.log/
+
 ## 2.2.0
 - Switched parameter order on `queryCourses`
 - Now completed initial testing of more helpers
