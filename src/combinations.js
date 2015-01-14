@@ -82,7 +82,7 @@ function combinations(set, k) {
 		// Assert {1 < k < set.length}
 		let combs = []
 		for (let i = 0; i < set.length - k + 1; i++) {
-			let head = set.slice(i, i+1)
+			let head = set.slice(i, i + 1)
 			let tailcombs = combinations(set.slice(i + 1), k - 1)
 			for (let j = 0; j < tailcombs.length; j++) {
 				combs.push(head.concat(tailcombs[j]))

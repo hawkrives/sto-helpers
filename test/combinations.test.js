@@ -7,7 +7,7 @@ describe('combinations', () => {
 
 		expect(combinations([1, 2, 3], 1)).to.eql([[1], [2], [3]])
 
-		expect(combinations([1, 2, 3], 2)).to.eql([[1,2], [1,3], [2, 3]])
+		expect(combinations([1, 2, 3], 2)).to.eql([[1, 2], [1, 3], [2, 3]])
 
 		expect(combinations([1, 2, 3], 3)).to.eql([[1, 2, 3]])
 
