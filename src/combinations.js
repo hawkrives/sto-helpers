@@ -26,38 +26,34 @@
  * </lisence>
  *
  * Implements functions to calculate combinations of elements in JS Arrays.
- *
- * Functions:
- *   k_combinations(set, k) -- Return all k-sized combinations in a set
- *   combinations(set) -- Return all combinations of the set
  */
 
 /**
  * Get k-sized combinations of elements in a set.
  *
- * Usage: `k_combinations(set, k)`
+ * Usage: `combinations(set, k)`
  *
  * Examples:
  *
- *   k_combinations([1, 2, 3], 1)
+ *   combinations([1, 2, 3], 1)
  *   -> [[1], [2], [3]]
  *
- *   k_combinations([1, 2, 3], 2)
+ *   combinations([1, 2, 3], 2)
  *   -> [[1,2], [1,3], [2, 3]]
  *
- *   k_combinations([1, 2, 3], 3)
+ *   combinations([1, 2, 3], 3)
  *   -> [[1, 2, 3]]
  *
- *   k_combinations([1, 2, 3], 4)
+ *   combinations([1, 2, 3], 4)
  *   -> []
  *
- *   k_combinations([1, 2, 3], 0)
+ *   combinations([1, 2, 3], 0)
  *   -> []
  *
- *   k_combinations([1, 2, 3], -1)
+ *   combinations([1, 2, 3], -1)
  *   -> []
  *
- *   k_combinations([], 0)
+ *   combinations([], 0)
  *   -> []
  *
  *
@@ -87,7 +83,7 @@ function combinations(set, k) {
 		let combs = []
 		for (let i = 0; i < set.length - k + 1; i++) {
 			let head = set.slice(i, i+1)
-			let tailcombs = k_combinations(set.slice(i + 1), k - 1)
+			let tailcombs = combinations(set.slice(i + 1), k - 1)
 			for (let j = 0; j < tailcombs.length; j++) {
 				combs.push(head.concat(tailcombs[j]))
 			}
