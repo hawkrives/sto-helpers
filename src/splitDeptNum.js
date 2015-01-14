@@ -1,3 +1,5 @@
+import deptNumRegex from './deptNumRegex'
+
 /**
  * Splits a deptnum string (like "AS/RE 230A") into its components,
  * like {depts: ['AS', 'RE'], num: 230, sect: 'A'}.
@@ -8,9 +10,7 @@
 function splitDeptNum(deptNumString) {
 	// "AS/RE 230A" -> ["AS/RE 230A", "AS/RE", "AS", "RE", "230", "A"]
 	// -> {depts: ['AS', 'RE'], num: 230}
-	let combined = deptNumString.toUpperCase()
-	let regex = /(([A-Z]+)(?=\/)(?:\/)([A-Z]+)|[A-Z]+) *([0-9]+) *([A-Z]?)/gi
-	let matches = regex.exec(combined)
+	let matches = deptNumRegex.exec(deptNumString)
 
 	return {
 		depts: matches[1].indexOf('/') !== -1 ? [matches[2], matches[3]] : [matches[1]],
