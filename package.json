@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "lodash": "^2.4.1",
-    "sto-course-related-data": "^3.0.2"
+    "sto-course-related-data": "^3.0.3"
   },
   "devDependencies": {
     "6to5": "^2.9.3",
