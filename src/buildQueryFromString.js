@@ -1,5 +1,9 @@
 import _ from 'lodash'
 
+import quacksLikeDeptNum from './quacksLikeDeptNum'
+import splitDeptNum from './splitDeptNum'
+import buildDeptNum from './buildDeptNum'
+
 import evenIndex from './evenIndex'
 import oddIndex from './oddIndex'
 import notEmptyString from './notEmptyString'
@@ -76,9 +80,15 @@ function buildQueryFromString(queryString) {
 	let keys = _.filter(cleaned, evenIndex)
 	let values = _.filter(cleaned, oddIndex)
 
-	if (stringThing) {
+	if (stringThing && quacksLikeDeptNum(stringThing)) {
+		let {depts, num} = splitDeptNum(stringThing)
+		let deptnum = buildDeptNum({depts, num})
+		keys.push('deptnum')
+		values.push(deptnum)
+	}
+	else if (stringThing) {
 		keys.push('title')
-		values.push(stringThing.trim())
+		values.push(stringThing)
 	}
 
 	// Process the keys, to clean them up somewhat

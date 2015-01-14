@@ -58,4 +58,22 @@ describe('buildQueryFromString', () => {
 
 		expect(buildQueryFromString(query)).to.eql(expectedResult)
 	})
+
+	it('can also search for deptnums even with no keys', () => {
+		let query = 'ASIAN 220'
+		let expectedResult = {
+			deptnum: ['ASIAN 220'],
+		}
+
+		expect(buildQueryFromString(query)).to.eql(expectedResult)
+	})
+
+	it('can also search for deptnums with sections even with no keys', () => {
+		let query = 'AS/RE 220A'
+		let expectedResult = {
+			deptnum: ['ASIAN/REL 220'],
+		}
+
+		expect(buildQueryFromString(query)).to.eql(expectedResult)
+	})
 })
