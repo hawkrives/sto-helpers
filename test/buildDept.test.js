@@ -21,4 +21,33 @@ describe('buildDept', () => {
 		expect(buildDept(BICH)).to.equal('BIO/CHEM')
 		expect(buildDept(CHBI)).to.equal('CHEM/BIO')
 	})
+
+	it('maintains the order of the departments array even after shrinking', () => {
+		let BICH = {depts: ['BIOLOGY', 'CHEMISTRY']}
+		let CHBI = {depts: ['CHEMISTRY', 'BIOLOGY']}
+
+		expect(buildDept(BICH)).to.equal('BIO/CHEM')
+		expect(buildDept(CHBI)).to.equal('CHEM/BIO')
+	})
+
+	it('properly condenses department names into abbrs', () => {
+		let course = {depts: ['RELIGION']}
+
+		expect(buildDept(course)).to.equal('REL')
+	})
+
+	it('properly expands department short abbrs into abbrs', () => {
+		let course = {depts: ['AS', 'RE']}
+
+		expect(buildDept(course)).to.equal('ASIAN/REL')
+	})
+
+	it('doesn\'t modify the depts property', () => {
+		let course = {depts: ['AS', 'RE']}
+		let safecourse = {depts: ['AS', 'RE']}
+
+		buildDept(course)
+
+		expect(course).to.eql(safecourse)
+	})
 })
