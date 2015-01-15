@@ -58,10 +58,16 @@ let keywordMappings = {
 }
 
 function buildQueryFromString(queryString) {
+	queryString = queryString.trim()
+	if (queryString.endsWith(':'))
+		queryString = queryString.substring(0, queryString.length-1)
+
 	let rex = /(\b\w*?\b):/g
 
-	// The {index} object is there to emulate the one property I expect from a RegExp.
-	// If the regex fails, we grab the string through the end and build the object from what we assume to be the title.
+	// The {index} object is there to emulate the one property I
+	// expect from a RegExp.
+	// If the regex fails, we grab the string through the end
+	// and build the object from what we assume to be the title.
 	let rexTested = rex.exec(queryString) || {index: queryString.length}
 	let stringThing = queryString.substr(0, rexTested.index)
 	queryString = queryString.substring(rexTested.index)
@@ -74,7 +80,6 @@ function buildQueryFromString(queryString) {
 		.map((m) => m.trim())
 		.filter(notEmptyString)
 		.value()
-
 
 	// Grab the keys and values from the lists
 	let keys = _.filter(cleaned, evenIndex)

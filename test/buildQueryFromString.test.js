@@ -76,4 +76,40 @@ describe('buildQueryFromString', () => {
 
 		expect(buildQueryFromString(query)).to.eql(expectedResult)
 	})
+
+	it('returns an empty object when given nothing but whitespace', () => {
+		expect(buildQueryFromString(' ')).to.eql({})
+		expect(buildQueryFromString('	')).to.eql({})
+		expect(buildQueryFromString('\t')).to.eql({})
+		expect(buildQueryFromString('        ')).to.eql({})
+		expect(buildQueryFromString('')).to.eql({})
+	})
+
+	it('handles multiple colons in a querystring', () => {
+		let query = 'CSCI:helloworld:test:foo'
+		let expectedResult = {csci: ['helloworld'], test: ['foo']}
+
+		expect(buildQueryFromString(query)).to.eql(expectedResult)
+	})
+
+	it('handles a single key and no value', () => {
+		let query = 'ENGL 200:'
+		let expectedResult = {deptnum: ['ENGL 200']}
+
+		expect(buildQueryFromString(query)).to.eql(expectedResult)
+	})
+
+	it('handles a otherwise-valid string that ends with a colon', () => {
+		let query = 'deptnum: ENGL 200:'
+		let expectedResult = {deptnum: ['ENGL 200']}
+
+		expect(buildQueryFromString(query)).to.eql(expectedResult)
+	})
+
+	it('handles a string that ends with a colon', () => {
+		let query = 'deptnum: ENGL 200 valid:'
+		let expectedResult = {deptnum: ['ENGL 200 VALID']}
+
+		expect(buildQueryFromString(query)).to.eql(expectedResult)
+	})
 })
