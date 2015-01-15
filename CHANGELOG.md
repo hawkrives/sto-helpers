@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.0.1
+- Update expectations and fix a few edge cases in `buildQueryFromString`
+
 ## 3.0.0
 - Update `6to5`
 - Update `sto-course-related-data`
