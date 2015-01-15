@@ -112,4 +112,11 @@ describe('buildQueryFromString', () => {
 
 		expect(buildQueryFromString(query)).to.eql(expectedResult)
 	})
+
+	it('sorts a five-year token string correctly', () => {
+		let query = 'year: $OR year: 2010 year: 2011 year: 2012 year: 2013 year: 2014'
+		let expectedResult = {year: ['$OR', 2010, 2011, 2012, 2013, 2014]}
+
+		expect(buildQueryFromString(query)).to.eql(expectedResult)
+	})
 })
