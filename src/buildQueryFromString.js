@@ -60,7 +60,7 @@ let keywordMappings = {
 function buildQueryFromString(queryString) {
 	queryString = queryString.trim()
 	if (queryString.endsWith(':'))
-		queryString = queryString.substring(0, queryString.length-1)
+		queryString = queryString.substring(0, queryString.length - 1)
 
 	let rex = /(\b\w*?\b):/g
 
