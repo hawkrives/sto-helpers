@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.0.3
+- Fix the `short` option of `expandYear`
+
 ## 3.0.2
 - Add `short` option to `expandYear` to allow it to return things like '2012-13' instead of '2012-2013'
 
