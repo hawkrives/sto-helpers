@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.0.2
+- Add `short` option to `expandYear` to allow it to return things like '2012-13' instead of '2012-2013'
+
 ## 3.0.1
 - Update expectations and fix a few edge cases in `buildQueryFromString`
 
