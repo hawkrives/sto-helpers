@@ -20,6 +20,8 @@ let findWordForProgress = (maxProgress, currentProgress) => {
 		return 'twenty'
 	else if (progress >= 0.1)
 		return 'ten'
+	else if (progress > 0 && progress < 0.1)
+		return 'under-ten'
 	else
 		return 'zero'
 }

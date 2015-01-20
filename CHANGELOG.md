@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.0.5
+- Add `under-ten` result to `findWordForProgress`
+
 ## 3.0.4
 - Add `seperator` parameter to `expandYear`
 
