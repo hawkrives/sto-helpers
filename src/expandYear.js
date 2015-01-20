@@ -5,12 +5,12 @@
  * @param {Number} year
  * @returns {String}
  */
-function expandYear(year, short=false) {
+function expandYear(year, short=false, seperator='—') {
 	let thisYear = String(year)
 	let nextYear = String(parseInt(year, 10) + 1)
 	if (short)
 		nextYear = nextYear.substr(-2, 2)
-	return `${thisYear}—${(nextYear)}`
+	return `${thisYear}${seperator}${(nextYear)}`
 }
 
 export default expandYear

@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.0.4
+- Add `seperator` parameter to `expandYear`
+
 ## 3.0.3
 - Fix the `short` option of `expandYear`
 
