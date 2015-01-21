@@ -4,8 +4,7 @@ import {
 	isString,
 	contains,
 	map,
-	mapValues,
-} from 'lodash'
+	mapValues} from 'lodash'
 
 import quacksLikeDeptNum from './quacksLikeDeptNum'
 import splitDeptNum from './splitDeptNum'

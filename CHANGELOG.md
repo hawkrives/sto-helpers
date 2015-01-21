@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.0.7
+- Fixed a linting error in the imports of `buildQueryFromString`
+
 ## 3.0.6
 - Fixed bug in `buildQueryFromString`
 	- When it checked to see if it needed to insert a boolean operator, it assumed that all values were strings. This, however, happens after the processing of the values, so the will almost certainly not be strings.
