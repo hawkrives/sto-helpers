@@ -1,4 +1,11 @@
-import _ from 'lodash'
+import {
+	chain,
+	filter,
+	isString,
+	contains,
+	map,
+	mapValues,
+} from 'lodash'
 
 import quacksLikeDeptNum from './quacksLikeDeptNum'
 import splitDeptNum from './splitDeptNum'
@@ -76,14 +83,14 @@ function buildQueryFromString(queryString) {
 	let matches = queryString.split(rex)
 
 	// Remove extra whitespace and remove empty strings
-	let cleaned = _(matches)
+	let cleaned = chain(matches)
 		.map((m) => m.trim())
 		.filter(notEmptyString)
 		.value()
 
 	// Grab the keys and values from the lists
-	let keys = _.filter(cleaned, evenIndex)
-	let values = _.filter(cleaned, oddIndex)
+	let keys = filter(cleaned, evenIndex)
+	let values = filter(cleaned, oddIndex)
 
 	if (stringThing && quacksLikeDeptNum(stringThing)) {
 		let {depts, num} = splitDeptNum(stringThing)
@@ -97,7 +104,7 @@ function buildQueryFromString(queryString) {
 	}
 
 	// Process the keys, to clean them up somewhat
-	keys = _.map(keys, (key) => {
+	keys = map(keys, (key) => {
 		key = key.toLowerCase()
 		if (!key.startsWith('_'))
 			key = keywordMappings[key] || key
@@ -108,8 +115,8 @@ function buildQueryFromString(queryString) {
 	let zipped = zipToObjectWithArrays(keys, values)
 
 	// Perform initial cleaning of the values, dependent on the keys
-	let grouped = _.mapValues(zipped, (vals, key) => {
-		let organized = _.map(vals, (val) => {
+	let grouped = mapValues(zipped, (vals, key) => {
+		let organized = map(vals, (val) => {
 			if (val.startsWith('$')) {
 				return val.toUpperCase()
 			}
@@ -141,18 +148,18 @@ function buildQueryFromString(queryString) {
 				val = val.toLowerCase()
 			}
 
-			else if (_.contains(['year', 'term', 'level', 'num'], key)) {
+			else if (contains(['year', 'term', 'level', 'num'], key)) {
 				val = parseInt(val, 10)
 			}
 
-			else if (_.contains(['title', 'name', 'notes', 'description'], key)) {
+			else if (contains(['title', 'name', 'notes', 'description'], key)) {
 				val = val.trim()
 			}
 
 			return val
 		})
 
-		if (organized.length > 1 && !organized[0].startsWith('$')) {
+		if (organized.length > 1 && (!isString(organized[0]) || !organized[0].startsWith('$'))) {
 			organized.unshift('$AND')
 		}
 
