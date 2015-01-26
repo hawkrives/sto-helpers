@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import {_, max} from 'lodash'
 import findMissingNumberBinarySearch from './findMissingNumberBinarySearch'
 
 /**
@@ -13,8 +13,8 @@ import findMissingNumberBinarySearch from './findMissingNumberBinarySearch'
  */
 function findFirstAvailableSemester(schedules, forYear) {
 	let semesters = _(schedules.toJS ? schedules.toJS() : schedules)
-		.filter(sch => sch.year === forYear)
-		.map(sch => sch.semester)
+		.filter({year: forYear})
+		.pluck('semester')
 		.uniq()
 		// stick a 0 at the front so findBinary will start from 1
 		.unshift(0)
@@ -26,7 +26,7 @@ function findFirstAvailableSemester(schedules, forYear) {
 		return missingNo
 	}
 
-	return _.max(semesters) + 1
+	return max(semesters) + 1
 }
 
 export default findFirstAvailableSemester

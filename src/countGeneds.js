@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import {_, uniq} from 'lodash'
 import hasGenEd from './hasGenEd'
 import hasFOL from './hasFOL'
 
@@ -10,7 +10,7 @@ import hasFOL from './hasFOL'
  * @returns {Number} - the number of occurrences.
  */
 function countGeneds(courses, gened) {
-	let uniqed = _.uniq(courses, 'crsid')
+	let uniqed = uniq(courses, 'crsid')
 
 	if (gened === 'FOL')
 		return _(uniqed)

@@ -1,4 +1,4 @@
-import {curry} from 'lodash'
+import {curry, parseInt} from 'lodash'
 
 
 /**
@@ -10,8 +10,8 @@ import {curry} from 'lodash'
  * @returns {Boolean}
  */
 let isCurrentSemester = curry((year=0, semester=0, schedule) => {
-	year = parseInt(year, 10)
-	semester = parseInt(semester, 10)
+	year = parseInt(year)
+	semester = parseInt(semester)
 
 	return (schedule.year === year) && (schedule.semester === semester)
 })
@@ -25,7 +25,7 @@ let isCurrentSemester = curry((year=0, semester=0, schedule) => {
  * @returns {Boolean}
  */
 let isCurrentYear = curry((year=0, schedule) => {
-	year = parseInt(year, 10)
+	year = parseInt(year)
 	return (schedule.year === year)
 })
 

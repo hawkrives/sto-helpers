@@ -1,4 +1,4 @@
-import {any} from 'lodash'
+import {any, startsWith} from 'lodash'
 
 /**
  * Checks if a course has an FOL gened.
@@ -8,6 +8,6 @@ import {any} from 'lodash'
  * @returns {Boolean}
  */
 let hasFOL = (course) =>
-	any(course.gereqs, (req) => req.startsWith('FOL'))
+	any(course.gereqs, (req) => startsWith(req, 'FOL'))
 
 export default hasFOL

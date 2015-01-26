@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import {_, sortBy} from 'lodash'
 import findMissingNumberBinarySearch from './findMissingNumberBinarySearch'
 
 /**
@@ -18,7 +18,7 @@ function findFirstAvailableYear(schedules, matriculation) {
 	}
 
 	let years = _(schedules.toJS ? schedules.toJS() : schedules)
-		.map(sch => sch.year)
+		.pluck('year')
 		.uniq()
 		.value()
 
@@ -26,7 +26,7 @@ function findFirstAvailableYear(schedules, matriculation) {
 	if (matriculation !== undefined)
 		years.unshift(matriculation - 1)
 
-	years = _.sortBy(years)
+	years = sortBy(years)
 
 	// console.log('findFirstAvailableYear', years.toJS())
 

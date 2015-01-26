@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import {_, cloneDeep} from 'lodash'
 import buildQueryFromString from './buildQueryFromString'
 import checkCourseAgainstQuery from './checkCourseAgainstQuery'
 
@@ -16,7 +16,7 @@ function queryCourses(queryString, courses) {
 
 	let results = _(courses)
 		.filter(checkCourseAgainstQuery(query))
-		.map(_.cloneDeep)
+		.map(cloneDeep)
 		.value()
 
 	return results

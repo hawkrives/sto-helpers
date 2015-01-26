@@ -1,4 +1,4 @@
-import {curry, contains} from 'lodash'
+import {curry, contains, startsWith} from 'lodash'
 import hasFOL from './hasFOL'
 
 /**
@@ -9,7 +9,7 @@ import hasFOL from './hasFOL'
  * @returns {Boolean}
  */
 let hasGenEd = curry((gened, course) => {
-	if (gened.startsWith('FOL'))
+	if (startsWith(gened, 'FOL'))
 		return hasFOL(course)
 	return contains(course.gereqs, gened)
 })
