@@ -1,2 +1,3 @@
-export default (min, max) =>
-	Math.floor(Math.random() * (max - min + 1)) + min
+import {random} from 'lodash'
+
+export default (min, max) => random(min, max)
