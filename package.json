@@ -18,15 +18,15 @@
     "watch-tests": "mocha --watch"
   },
   "dependencies": {
-    "lodash": "3.0.0",
-    "sto-course-related-data": "3.0.3"
+    "lodash": "^3.0.0",
+    "sto-course-related-data": "^3.0.3"
   },
   "devDependencies": {
-    "6to5": "2.13.7",
-    "chai": "1.10.0",
-    "jscs": "1.10.0",
-    "jscs-jsdoc": "0.4.4",
-    "mocha": "2.1.0"
+    "6to5": "^2.13.7",
+    "chai": "^1.10.0",
+    "jscs": "^1.10.0",
+    "jscs-jsdoc": "^0.4.4",
+    "mocha": "^2.1.0"
   },
   "keywords": [
     "stolaf",

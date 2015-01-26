@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.1.1
+- Stop pinning exact versions in package.json
+
 ## 3.1.0
 - Pin exact versions in package.json
 - Add an `index.js` and a `main` key to allow requiring of files without knowledge of the structure
