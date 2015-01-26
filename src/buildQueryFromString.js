@@ -4,6 +4,9 @@ import {
 	isString,
 	contains,
 	map,
+	parseInt,
+	startsWith,
+	trim,
 	mapValues} from 'lodash'
 
 import quacksLikeDeptNum from './quacksLikeDeptNum'
@@ -105,7 +108,7 @@ function buildQueryFromString(queryString) {
 	// Process the keys, to clean them up somewhat
 	keys = map(keys, (key) => {
 		key = key.toLowerCase()
-		if (!key.startsWith('_'))
+		if (!startsWith(key, '_'))
 			key = keywordMappings[key] || key
 		return key
 	})
@@ -116,7 +119,7 @@ function buildQueryFromString(queryString) {
 	// Perform initial cleaning of the values, dependent on the keys
 	let grouped = mapValues(zipped, (vals, key) => {
 		let organized = map(vals, (val) => {
-			if (val.startsWith('$')) {
+			if (startsWith(val, '$')) {
 				return val.toUpperCase()
 			}
 
@@ -136,7 +139,7 @@ function buildQueryFromString(queryString) {
 
 			else if (key === 'sem') {
 				val = val.toLowerCase()
-				val = semesters[val] || parseInt(val, 10)
+				val = semesters[val] || parseInt(val)
 			}
 
 			else if (key === 'profs') {
@@ -148,17 +151,17 @@ function buildQueryFromString(queryString) {
 			}
 
 			else if (contains(['year', 'term', 'level', 'num'], key)) {
-				val = parseInt(val, 10)
+				val = parseInt(val)
 			}
 
 			else if (contains(['title', 'name', 'notes', 'description'], key)) {
-				val = val.trim()
+				val = trim(val)
 			}
 
 			return val
 		})
 
-		if (organized.length > 1 && (!isString(organized[0]) || !organized[0].startsWith('$'))) {
+		if (organized.length > 1 && !startsWith(organized[0], '$')) {
 			organized.unshift('$AND')
 		}
 
