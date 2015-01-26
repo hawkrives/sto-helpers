@@ -7,6 +7,7 @@ import {
 	parseInt,
 	startsWith,
 	trim,
+	partition,
 	mapValues} from 'lodash'
 
 import quacksLikeDeptNum from './quacksLikeDeptNum'
@@ -91,8 +92,7 @@ function buildQueryFromString(queryString) {
 		.value()
 
 	// Grab the keys and values from the lists
-	let keys = filter(cleaned, evenIndex)
-	let values = filter(cleaned, oddIndex)
+	let [keys, values] = partition(cleaned, evenIndex)
 
 	if (stringThing && quacksLikeDeptNum(stringThing)) {
 		let {depts, num} = splitDeptNum(stringThing)
