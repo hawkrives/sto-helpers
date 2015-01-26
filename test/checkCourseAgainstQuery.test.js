@@ -15,7 +15,6 @@ describe('checkCourseAgainstQuery', () => {
 	})
 
 	it('handles complicated queries', () => {
-		let start = process.hrtime()
 		let query = {
 			depts: ['$AND', 'ASIAN', 'REL'],
 			title: ['Japan'],
@@ -30,14 +29,10 @@ describe('checkCourseAgainstQuery', () => {
 			level: 200,
 			title: 'Japan',
 		}
-		let result = checkCourseAgainstQuery(query, course)
-		let diff = process.hrtime(start)
-		console.log('benchmark took %d nanoseconds', diff[0] * 1e9 + diff[1]);
-		expect(result).to.be.true
+		expect(checkCourseAgainstQuery(query, course)).to.be.true
 	})
 
 	it('handles complicated queries', () => {
-		let start = process.hrtime()
 		let query = {
 			depts: ['$AND', 'ASIAN', 'REL'],
 			title: ['Japan'],
@@ -48,9 +43,6 @@ describe('checkCourseAgainstQuery', () => {
 		let course = {
 			depts: ['ASIAN'],
 		}
-		let result = checkCourseAgainstQuery(query, course)
-		let diff = process.hrtime(start)
-		console.log('benchmark took %d nanoseconds', diff[0] * 1e9 + diff[1]);
-		expect(result).to.be.false
+		expect(checkCourseAgainstQuery(query, course)).to.be.false
 	})
 })
