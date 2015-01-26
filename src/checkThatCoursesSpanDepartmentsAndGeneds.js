@@ -9,16 +9,11 @@ import hasGenEd from './hasGenEd'
  *
  * @param {Array.<Course>} courses - the list of courses.
  * @param {Array.<String>} geneds - The list of geneds.
- * @param {Object} options
- *   - options.courseCount defaults to 2;
- *   - options.gened is the gened we're looking for.
  * @returns {Boolean}
  */
-function checkThatCoursesSpanDepartmentsAndGeneds(courses, geneds, options={}) {
-	if (isUndefined(options.courseCount))
-		options.courseCount = 2
-	if (isUndefined(options.gened))
-		options.gened = geneds[0]
+function checkThatCoursesSpanDepartmentsAndGeneds(courses, geneds, {courseCount, gened}={}) {
+	courseCount = courseCount || 2
+	gened = gened || geneds[0]
 
 	const coursesOne = filter(courses, hasGenEd(geneds[0]))
 	const coursesTwo = geneds[1] ? filter(courses, hasGenEd(geneds[1])) : []
@@ -27,8 +22,8 @@ function checkThatCoursesSpanDepartmentsAndGeneds(courses, geneds, options={}) {
 	const coversTwoDepartments = acrossAtLeastTwoDepartments(allCourses)
 
 	return all([
-		countGeneds(courses, options.gened) >= 1,
-		size(allCourses) >= options.courseCount,
+		countGeneds(courses, gened) >= 1,
+		size(allCourses) >= courseCount,
 		coversTwoDepartments,
 	])
 }
