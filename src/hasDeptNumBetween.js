@@ -1,9 +1,7 @@
 import {any, all, curry, isUndefined} from 'lodash'
 import hasDepartment from './hasDepartment'
 
-let hasDeptNumBetween = curry((args, course) => {
-	let {dept, start, end} = args
-
+let hasDeptNumBetween = curry(({dept, start, end}={}, course) => {
 	if (any([dept, start, end], isUndefined)) {
 		return false
 	}
