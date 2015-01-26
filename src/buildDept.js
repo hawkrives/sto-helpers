@@ -16,9 +16,7 @@ function buildDept(course) {
 
 	departments = map(departments, (dept) => {
 		dept = dept.toLowerCase()
-		if (has(departmentNameToAbbr, dept))
-			return departmentNameToAbbr[dept]
-		return dept.toUpperCase()
+		return departmentNameToAbbr[dept] || dept.toUpperCase()
 	})
 
 	return departments.join('/')
