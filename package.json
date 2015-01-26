@@ -18,16 +18,16 @@
     "watch-tests": "nodemon --watch test/ --watch src/ --exec 'npm run mocha'"
   },
   "dependencies": {
-    "lodash": "^2.4.1",
-    "sto-course-related-data": "^3.0.3"
+    "lodash": "2.4.1",
+    "sto-course-related-data": "3.0.3"
   },
   "devDependencies": {
-    "6to5": "^2.12.3",
-    "chai": "^1.10.0",
-    "jscs": "^1.9.0",
-    "jscs-jsdoc": "^0.4.0",
-    "mocha": "^2.1.0",
-    "nodemon": "^1.2.1"
+    "6to5": "2.12.3",
+    "chai": "1.10.0",
+    "jscs": "1.9.0",
+    "jscs-jsdoc": "0.4.0",
+    "mocha": "2.1.0",
+    "nodemon": "1.2.1"
   },
   "keywords": [
     "stolaf",
