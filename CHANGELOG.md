@@ -1,9 +1,11 @@
 # CHANGELOG
 
-## 3.1.0
+## 4.0.0
 - Pin exact versions in package.json
 - Add an `index.js` and a `main` key to allow requiring of files without knowledge of the structure
 - Removed `deep-clean` script
+- **Removed:** `getRandomInt` in favor of `_.random`
+- **Speed:** Used `_.takeWhile` to allow early bailing of checkCourseAgainstQuery as soon as the first check fails.
 
 ## 3.0.7
 - Fixed a linting error in the imports of `buildQueryFromString`
