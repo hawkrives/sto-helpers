@@ -9,7 +9,7 @@
   "scripts": {
     "prepublish": "npm run build",
     "postpublish": "npm run clean",
-    "build": "6to5 src --out-dir lib && node ./bin/make_index.js",
+    "build": "6to5 --optional selfContained src --out-dir lib && node ./bin/make_index.js",
     "clean": "rm -rf ./index.js lib/",
     "push": "./bin/publish.sh",
     "mocha": "mocha",
