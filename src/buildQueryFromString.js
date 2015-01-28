@@ -1,19 +1,21 @@
 import {
 	chain,
-	filter,
-	isString,
 	contains,
+	filter,
+	flatten,
 	map,
+	mapValues,
 	parseInt,
+	partition,
 	startsWith,
 	trim,
-	partition,
-	mapValues} from 'lodash'
+	unzip} from 'lodash'
 
 import quacksLikeDeptNum from './quacksLikeDeptNum'
 import splitDeptNum from './splitDeptNum'
 import buildDeptNum from './buildDeptNum'
 
+import splitParagraph from './splitParagraph'
 import evenIndex from './evenIndex'
 import oddIndex from './oddIndex'
 import notEmptyString from './notEmptyString'
@@ -67,8 +69,67 @@ let keywordMappings = {
 	'place': 'places',
 }
 
-function buildQueryFromString(queryString) {
-	queryString = queryString.trim()
+
+function organizeValues([key, values]=[], {words=false}={}) {
+	let organizedValues = map(values, (val) => {
+		if (startsWith(val, '$')) {
+			return val.toUpperCase()
+		}
+
+		else if (key === 'depts') {
+			val = val.toLowerCase()
+			val = departmentMapping[val] || val.toUpperCase()
+		}
+
+		else if (key === 'gereqs') {
+			val = val.toLowerCase()
+			val = gereqMapping[val] || val.toUpperCase()
+		}
+
+		else if (key === 'deptnum') {
+			val = val.toUpperCase()
+		}
+
+		else if (key === 'sem') {
+			val = val.toLowerCase()
+			val = semesters[val] || parseInt(val)
+		}
+
+		else if (key === 'profs') {
+			val = val.toUpperCase()
+		}
+
+		else if (key === 'times' || key === 'places') {
+			val = val.toLowerCase()
+		}
+
+		else if (contains(['year', 'term', 'level', 'num'], key)) {
+			val = parseInt(val)
+		}
+
+		else if (contains(['title', 'name', 'notes', 'description', 'words'], key)) {
+			if (words || key === 'words') {
+				val = splitParagraph(val)
+				key = 'words'
+			}
+			else {
+				val = trim(val)
+			}
+		}
+
+		return val
+	})
+
+	if (key === 'words') {
+		organizedValues = flatten(organizedValues)
+	}
+
+	return [key, organizedValues]
+}
+
+
+function buildQueryFromString(queryString='', {words=false}={}) {
+	queryString = trim(queryString)
 	if (queryString.endsWith(':'))
 		queryString = queryString.substring(0, queryString.length - 1)
 
@@ -87,7 +148,7 @@ function buildQueryFromString(queryString) {
 
 	// Remove extra whitespace and remove empty strings
 	let cleaned = chain(matches)
-		.map((m) => m.trim())
+		.map(trim)
 		.filter(notEmptyString)
 		.value()
 
@@ -117,58 +178,27 @@ function buildQueryFromString(queryString) {
 	let zipped = zipToObjectWithArrays(keys, values)
 
 	// Perform initial cleaning of the values, dependent on the keys
-	let grouped = mapValues(zipped, (vals, key) => {
-		let organized = map(vals, (val) => {
-			if (startsWith(val, '$')) {
-				return val.toUpperCase()
-			}
+	let paired = chain(zipped)
+		.pairs()
+		.map(kvpairs => organizeValues(kvpairs, {words}))
+		.unzip()
+		.value()
 
-			else if (key === 'depts') {
-				val = val.toLowerCase()
-				val = departmentMapping[val] || val.toUpperCase()
-			}
+	let organized = zipToObjectWithArrays(...paired) // spread the [k, v] pairs into the arguments properly
 
-			else if (key === 'gereqs') {
-				val = val.toLowerCase()
-				val = gereqMapping[val] || val.toUpperCase()
-			}
+	let finalized = mapValues(organized, (val) => {
+		// flatten the results list
+		val = flatten(val)
 
-			else if (key === 'deptnum') {
-				val = val.toUpperCase()
-			}
-
-			else if (key === 'sem') {
-				val = val.toLowerCase()
-				val = semesters[val] || parseInt(val)
-			}
-
-			else if (key === 'profs') {
-				val = val.toUpperCase()
-			}
-
-			else if (key === 'times' || key === 'places') {
-				val = val.toLowerCase()
-			}
-
-			else if (contains(['year', 'term', 'level', 'num'], key)) {
-				val = parseInt(val)
-			}
-
-			else if (contains(['title', 'name', 'notes', 'description'], key)) {
-				val = trim(val)
-			}
-
-			return val
-		})
-
-		if (organized.length > 1 && !startsWith(organized[0], '$')) {
-			organized.unshift('$AND')
+		// if it's a multi-value thing and doesn't include a boolean yet, default to $AND
+		if (val.length > 1 && !startsWith(val[0], '$')) {
+			val.unshift('$AND')
 		}
 
-		return organized
+		return val
 	})
 
-	return grouped
+	return finalized
 }
 
 export default buildQueryFromString
