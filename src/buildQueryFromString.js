@@ -102,7 +102,7 @@ function organizeValues([key, values]=[], {words=false}={}) {
 		}
 
 		else if (key === 'times' || key === 'places') {
-			val = val.toLowerCase()
+			val = val.toUpperCase()
 		}
 
 		else if (contains(['year', 'term', 'level', 'num'], key)) {

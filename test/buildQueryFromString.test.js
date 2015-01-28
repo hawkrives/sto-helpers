@@ -33,7 +33,7 @@ describe('buildQueryFromString', () => {
 			depts: ['AMCON'],
 			title: ['Independence'],
 			year: [2014],
-			times: ['tuesdays after 12'],
+			times: ['TUESDAYS AFTER 12'],
 		}
 
 		expect(buildQueryFromString(query)).to.eql(expectedResult)
