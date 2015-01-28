@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 4.0.0
+- **Changed:** `combinations` now uses generators by default. The old behavior is available under `basicCombinations`
+
 ## 3.1.1
 - Stop pinning exact versions in package.json
 
