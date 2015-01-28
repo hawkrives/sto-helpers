@@ -1,5 +1,5 @@
 // test/courseLevels.test.js
-import courseLevels from '../src/courseLevels'
+import * as courseLevels from '../src/courseLevels'
 
 describe('courseLevels', () => {
 	let courses = []
