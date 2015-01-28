@@ -3,7 +3,7 @@ import {chain, isArray, isObject, isBoolean, isUndefined} from 'lodash'
 function findResults(obj) {
 	if (isArray(obj)) {
 		return chain(obj)
-			.map(val => findResults(val))
+			.map(findResults)
 			.flatten()
 			.reject(isUndefined)
 			.value()
