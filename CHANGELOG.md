@@ -5,6 +5,7 @@
 - Various internal optimizations
 - **Removed:** `getRandomInt`
 - **Changed:** `queryCourses` no longer accepts a query string; it now expects a query object, like the one from `buildQueryFromString`
+- **Rearranged:** `isTrue` moved into its own file. It can now also be properly required from the root package
 - **Removed:** `isAsianCon` has moved back into `sto-areas`
 - **Changed:** `combinations` now uses generators by default. The old behavior is available under `basicCombinations`
 

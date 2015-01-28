@@ -1,5 +1,5 @@
 // test/is.test.js
-import {isTrue} from '../src/is'
+import isTrue from '../src/isTrue'
 
 describe('isTrue', () => {
 	it('checks if a thing is true', () => {
