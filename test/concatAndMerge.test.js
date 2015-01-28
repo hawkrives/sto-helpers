@@ -1,6 +1,6 @@
 // test/concatAndMerge.test.js
 import concatAndMerge from '../src/concatAndMerge'
-import _ from 'lodash'
+import {merge} from 'lodash'
 
 describe('concatAndMerge', () => {
 	it('merges two objects together, concatenating any arrays', () => {
@@ -26,6 +26,6 @@ describe('concatAndMerge', () => {
 			c: 'c',
 		}
 
-		expect(_.merge(obj1, obj2, concatAndMerge)).to.eql(expectedResult)
+		expect(merge(obj1, obj2, concatAndMerge)).to.eql(expectedResult)
 	})
 })
