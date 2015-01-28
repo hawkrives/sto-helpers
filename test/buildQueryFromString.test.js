@@ -53,10 +53,10 @@ describe('buildQueryFromString', () => {
 	it('builds a query string even with no keys', () => {
 		let query = 'History of Asia'
 		let expectedResult = {
-			title: ['History of Asia'],
+			words: ['$AND', 'history', 'of', 'asia'],
 		}
 
-		expect(buildQueryFromString(query)).to.eql(expectedResult)
+		expect(buildQueryFromString(query, {words: true})).to.eql(expectedResult)
 	})
 
 	it('can also search for deptnums even with no keys', () => {
@@ -125,5 +125,12 @@ describe('buildQueryFromString', () => {
 		let expectedResult = {year: ['$AND', 2010, 2011, 2012, 2013, 2014]}
 
 		expect(buildQueryFromString(query)).to.eql(expectedResult)
+	})
+
+	it('maps multiple multi-word queries to the same words array', () => {
+		let query = 'title: Japan description: Otaku'
+		let expectedResult = {words: ['$AND', 'japan', 'otaku']}
+
+		expect(buildQueryFromString(query, {words: true})).to.eql(expectedResult)
 	})
 })
