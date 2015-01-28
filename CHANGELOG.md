@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.1.1
+- **Fix:** `buildQueryFromString` now properly title-cases professors
+- **Fix:** `buildQueryFromString` now properly lower-cases times and locations
+
 ## 4.1.0
 - `buildQueryFromString` now returns a `words` array, if you opt-in via `buildQueryFromString(query, {words: true})
 - **Added:** the `splitParagraph` helper
