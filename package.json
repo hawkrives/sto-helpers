@@ -20,6 +20,7 @@
   "dependencies": {
     "6to5-runtime": "^3.0.5",
     "combinations-generator": "^1.0.1",
+    "humanize-plus": "^1.5.0",
     "lodash": "^3.0.0",
     "sto-course-related-data": "^3.0.3"
   },

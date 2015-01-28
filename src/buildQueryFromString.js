@@ -11,6 +11,8 @@ import {
 	trim,
 	unzip} from 'lodash'
 
+import {titleCase} from 'humanize-plus'
+
 import quacksLikeDeptNum from './quacksLikeDeptNum'
 import splitDeptNum from './splitDeptNum'
 import buildDeptNum from './buildDeptNum'
@@ -96,7 +98,7 @@ function organizeValues([key, values]=[], {words=false}={}) {
 		}
 
 		else if (key === 'profs') {
-			val = val.toUpperCase()
+			val = titleCase(val)
 		}
 
 		else if (key === 'times' || key === 'places') {

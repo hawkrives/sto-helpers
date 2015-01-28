@@ -133,4 +133,11 @@ describe('buildQueryFromString', () => {
 
 		expect(buildQueryFromString(query, {words: true})).to.eql(expectedResult)
 	})
+
+	it('makes professors properly title-cased', () => {
+		let query = 'prof: Katherine Tegtmeyer-pak'
+		let expectedResult = {profs: ['Katherine Tegtmeyer-Pak']}
+
+		expect(buildQueryFromString(query)).to.eql(expectedResult)
+	})
 })
