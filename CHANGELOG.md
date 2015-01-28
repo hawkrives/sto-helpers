@@ -1,7 +1,11 @@
 # CHANGELOG
 
+## 4.1.0
+- `buildQueryFromString` now returns a `words` array, if you opt-in via `buildQueryFromString(query, {words: true})
+- **Added:** the `splitParagraph` helper
+
 ## 4.0.1
-- Required 6to5-runtime to be self-contained
+- Required 6to5-runtime in order to be self-contained
 
 ## 4.0.0
 - Updated 6to5 to v3.0.0
