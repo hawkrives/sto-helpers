@@ -18,6 +18,7 @@
     "watch-tests": "mocha --watch"
   },
   "dependencies": {
+    "combinations-generator": "^1.0.1",
     "lodash": "^3.0.0",
     "sto-course-related-data": "^3.0.3"
   },
