@@ -1,23 +1,15 @@
-import {_, cloneDeep} from 'lodash'
-import buildQueryFromString from './buildQueryFromString'
+import {filter} from 'lodash'
 import checkCourseAgainstQuery from './checkCourseAgainstQuery'
 
 /**
  * Queries the database for courses.
  *
- * @param {String} queryString
+ * @param {Object} queryObj
  * @param {Array<Course>} courses
  * @returns {Array<Course>}
  */
-function queryCourses(queryString, courses) {
-	let query = buildQueryFromString(queryString)
-
-	// console.log('query:', query)
-
-	let results = _(courses)
-		.filter(checkCourseAgainstQuery(query))
-		.map(cloneDeep)
-		.value()
+function queryCourses(queryObj, courses) {
+	let results = filter(courses, checkCourseAgainstQuery(queryObj))
 
 	return results
 }
