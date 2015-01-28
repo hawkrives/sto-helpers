@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 4.0.1
+- Required 6to5-runtime to be self-contained
+
 ## 4.0.0
 - Updated 6to5 to v3.0.0
 - Various internal optimizations
