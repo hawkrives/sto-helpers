@@ -45,4 +45,17 @@ describe('checkCourseAgainstQuery', () => {
 		}
 		expect(checkCourseAgainstQuery(query, course)).to.be.false
 	})
+
+	it('handles $NOT queries', () => {
+		let query = {
+			profWords: ['macpherson'],
+			deptnum: ['$NOT', 'ASIAN 275'],
+		}
+		let course = {
+			deptnum: 'ASIAN 215',
+			profWords: ['kristina', 'macpherson', 'karil', 'kucera'],
+		}
+
+		expect(checkCourseAgainstQuery(query, course)).to.be.true
+	})
 })
