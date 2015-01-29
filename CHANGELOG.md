@@ -2,6 +2,7 @@
 
 ## 4.2.1
 - Updated dependencies
+- Added "teacher{s}" and "professor{s}" as aliases for "profs" in the keyword mappings in `buildQueryFromString`
 
 ## 4.2.0
 - **Fix:** `buildQueryFromString` now searches the `profs_words` array, if you ask it to with `{profs_words: true}`
