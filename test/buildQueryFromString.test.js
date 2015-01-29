@@ -135,9 +135,16 @@ describe('buildQueryFromString', () => {
 	})
 
 	it('makes professors properly title-cased', () => {
-		let query = 'prof: Katherine Tegtmeyer-pak'
-		let expectedResult = {profs: ['Katherine Tegtmeyer-Pak']}
+		expect(buildQueryFromString('prof: Katherine Tegtmeyer-pak'))
+			.to.eql({profs: ['Katherine Tegtmeyer-pak']})
 
-		expect(buildQueryFromString(query)).to.eql(expectedResult)
+		expect(buildQueryFromString('prof: Katherine Tegtmeyer-pak', {profs_words: true}))
+			.to.eql({profs_words: ['$AND', 'katherine', 'tegtmeyer', 'pak']})
+
+		expect(buildQueryFromString('prof: olaf a. hall-holt'))
+			.to.eql({profs: ['olaf a. hall-holt']})
+
+		expect(buildQueryFromString('prof: olaf a. hall-holt', {profs_words: true}))
+			.to.eql({profs_words: ['$AND', 'olaf', 'a', 'hall', 'holt']})
 	})
 })

@@ -1,4 +1,5 @@
 import {
+	isArray,
 	chain,
 	contains,
 	filter,
@@ -10,8 +11,6 @@ import {
 	startsWith,
 	trim,
 	unzip} from 'lodash'
-
-import {titleCase} from 'humanize-plus'
 
 import quacksLikeDeptNum from './quacksLikeDeptNum'
 import splitDeptNum from './splitDeptNum'
@@ -72,7 +71,7 @@ let keywordMappings = {
 }
 
 
-function organizeValues([key, values]=[], {words=false}={}) {
+function organizeValues([key, values]=[], {words=false, profs_words=false}={}) {
 	let organizedValues = map(values, (val) => {
 		if (startsWith(val, '$')) {
 			return val.toUpperCase()
@@ -98,7 +97,10 @@ function organizeValues([key, values]=[], {words=false}={}) {
 		}
 
 		else if (key === 'profs') {
-			val = titleCase(val)
+			if (profs_words) {
+				val = splitParagraph(val)
+				key = 'profs_words'
+			}
 		}
 
 		else if (key === 'times' || key === 'places') {
@@ -122,7 +124,7 @@ function organizeValues([key, values]=[], {words=false}={}) {
 		return val
 	})
 
-	if (key === 'words') {
+	if (organizedValues.length && isArray(organizedValues[0])) {
 		organizedValues = flatten(organizedValues)
 	}
 
@@ -130,7 +132,7 @@ function organizeValues([key, values]=[], {words=false}={}) {
 }
 
 
-function buildQueryFromString(queryString='', {words=false}={}) {
+function buildQueryFromString(queryString='', opts={}) {
 	queryString = trim(queryString)
 	if (queryString.endsWith(':'))
 		queryString = queryString.substring(0, queryString.length - 1)
@@ -182,7 +184,7 @@ function buildQueryFromString(queryString='', {words=false}={}) {
 	// Perform initial cleaning of the values, dependent on the keys
 	let paired = chain(zipped)
 		.pairs()
-		.map(kvpairs => organizeValues(kvpairs, {words}))
+		.map(kvpairs => organizeValues(kvpairs, opts))
 		.unzip()
 		.value()
 

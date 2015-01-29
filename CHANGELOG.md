@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.2.0
+- **Fix:** `buildQueryFromString` now searches the `profs_words` array, if you ask it to with `{profs_words: true}`
+	- otherwise, it doesn't touch the query
+
 ## 4.1.1
 - **Fix:** `buildQueryFromString` now properly title-cases professors
 - **Fix:** `buildQueryFromString` now properly lower-cases times and locations
