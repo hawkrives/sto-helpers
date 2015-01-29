@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 4.2.2
+## 4.2.3
 - **Fixed:** `buildQueryFromString`: Added `groupid`, `clbid`, and `crsid` to the list of keys to be turned into numbers
 - **Fixed:** `buildQueryFromString`: Turn `credits` into a float via parseFloat
 - Updated `sto-related-course-data`
