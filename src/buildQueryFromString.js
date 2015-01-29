@@ -110,7 +110,15 @@ function organizeValues([key, values]=[], {words=false, profWords=false}={}) {
 			val = val.toUpperCase()
 		}
 
-		else if (contains(['year', 'term', 'level', 'num'], key)) {
+		else if (key === 'pf') {
+			val = (val === 'true') ? true : false
+		}
+
+		else if (key === 'credits') {
+			val = parseFloat(val)
+		}
+
+		else if (contains(['year', 'term', 'level', 'num', 'groupid', 'clbid', 'crsid'], key)) {
 			val = parseInt(val)
 		}
 

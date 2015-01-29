@@ -1,16 +1,21 @@
 # CHANGELOG
 
+## 4.2.2
+- **Fixed:** `buildQueryFromString`: Added `groupid`, `clbid`, and `crsid` to the list of keys to be turned into numbers
+- **Fixed:** `buildQueryFromString`: Turn `credits` into a float via parseFloat
+- Updated `sto-related-course-data`
+
 ## 4.2.1
 - Updated dependencies
 - Added "teacher{s}" and "professor{s}" as aliases for "profs" in the keyword mappings in `buildQueryFromString`
 
 ## 4.2.0
-- **Fix:** `buildQueryFromString` now searches the `profs_words` array, if you ask it to with `{profs_words: true}`
+- **Fixed:** `buildQueryFromString` now searches the `profs_words` array, if you ask it to with `{profs_words: true}`
 	- otherwise, it doesn't touch the query
 
 ## 4.1.1
-- **Fix:** `buildQueryFromString` now properly title-cases professors
-- **Fix:** `buildQueryFromString` now properly lower-cases times and locations
+- **Fixed:** `buildQueryFromString` now properly title-cases professors
+- **Fixed:** `buildQueryFromString` now properly lower-cases times and locations
 
 ## 4.1.0
 - `buildQueryFromString` now returns a `words` array, if you opt-in via `buildQueryFromString(query, {words: true})

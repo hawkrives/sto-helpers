@@ -21,7 +21,7 @@
     "6to5-runtime": "^3.0.16",
     "combinations-generator": "^1.0.1",
     "lodash": "^3.0.0",
-    "sto-course-related-data": "^3.0.3"
+    "sto-course-related-data": "^3.0.4"
   },
   "devDependencies": {
     "6to5": "^3.0.16",

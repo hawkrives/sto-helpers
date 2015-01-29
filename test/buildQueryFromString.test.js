@@ -6,7 +6,7 @@ describe('buildQueryFromString', () => {
 		let query = 'dept: Computer Science  dept: Asian Studies  name: Parallel  level: 300  year: $OR year:2013 year: 2014'
 		let expectedResult = {
 			depts: ['$AND', 'CSCI', 'ASIAN'],
-			title: ['Parallel'],
+			name: ['Parallel'],
 			level: [300],
 			year: ['$OR', 2013, 2014],
 		}
@@ -31,7 +31,7 @@ describe('buildQueryFromString', () => {
 		let query = 'department: American Conversations  name: Independence  year: 2014  time: Tuesdays after 12'
 		let expectedResult = {
 			depts: ['AMCON'],
-			title: ['Independence'],
+			name: ['Independence'],
 			year: [2014],
 			times: ['TUESDAYS AFTER 12'],
 		}
@@ -146,5 +146,12 @@ describe('buildQueryFromString', () => {
 
 		expect(buildQueryFromString('prof: olaf a. hall-holt', {profWords: true}))
 			.to.eql({profWords: ['$AND', 'olaf', 'a', 'hall', 'holt']})
+	})
+
+	it('parses credits correctly', () => {
+		let query = 'credits: $OR credits: 1.0 credits: 0.25 credits: .25 credits: 1'
+		let expectedResult = {credits: ['$OR', 1.0, 0.25, 0.25, 1.0]}
+
+		expect(buildQueryFromString(query)).to.eql(expectedResult)
 	})
 })
