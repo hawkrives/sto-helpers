@@ -71,7 +71,7 @@ let keywordMappings = {
 }
 
 
-function organizeValues([key, values]=[], {words=false, profs_words=false}={}) {
+function organizeValues([key, values]=[], {words=false, profWords=false}={}) {
 	let organizedValues = map(values, (val) => {
 		if (startsWith(val, '$')) {
 			return val.toUpperCase()
@@ -97,9 +97,9 @@ function organizeValues([key, values]=[], {words=false, profs_words=false}={}) {
 		}
 
 		else if (key === 'profs') {
-			if (profs_words) {
+			if (profWords) {
 				val = splitParagraph(val)
-				key = 'profs_words'
+				key = 'profWords'
 			}
 		}
 

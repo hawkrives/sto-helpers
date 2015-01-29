@@ -138,13 +138,13 @@ describe('buildQueryFromString', () => {
 		expect(buildQueryFromString('prof: Katherine Tegtmeyer-pak'))
 			.to.eql({profs: ['Katherine Tegtmeyer-pak']})
 
-		expect(buildQueryFromString('prof: Katherine Tegtmeyer-pak', {profs_words: true}))
-			.to.eql({profs_words: ['$AND', 'katherine', 'tegtmeyer', 'pak']})
+		expect(buildQueryFromString('prof: Katherine Tegtmeyer-pak', {profWords: true}))
+			.to.eql({profWords: ['$AND', 'katherine', 'tegtmeyer', 'pak']})
 
 		expect(buildQueryFromString('prof: olaf a. hall-holt'))
 			.to.eql({profs: ['olaf a. hall-holt']})
 
-		expect(buildQueryFromString('prof: olaf a. hall-holt', {profs_words: true}))
-			.to.eql({profs_words: ['$AND', 'olaf', 'a', 'hall', 'holt']})
+		expect(buildQueryFromString('prof: olaf a. hall-holt', {profWords: true}))
+			.to.eql({profWords: ['$AND', 'olaf', 'a', 'hall', 'holt']})
 	})
 })
