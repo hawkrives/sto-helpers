@@ -1,4 +1,9 @@
-import {filter, uniq, all, size, isUndefined} from 'lodash'
+import filter from 'lodash/collection/filter'
+import uniq from 'lodash/array/uniq'
+import all from 'lodash/collection/all'
+import size from 'lodash/collection/size'
+import isUndefined from 'lodash/lang/isUndefined'
+
 import acrossAtLeastTwoDepartments from './acrossAtLeastTwoDepartments'
 import countGeneds from './countGeneds'
 import hasGenEd from './hasGenEd'

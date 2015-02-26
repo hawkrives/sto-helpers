@@ -1,4 +1,5 @@
-import {any, startsWith} from 'lodash'
+import any from 'lodash/collection/any'
+import startsWith from 'lodash/string/startsWith'
 
 /**
  * Checks if a course has an FOL gened.

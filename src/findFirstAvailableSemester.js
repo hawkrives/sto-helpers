@@ -1,4 +1,9 @@
-import {_, max} from 'lodash'
+import max from 'lodash/collection/max'
+import filter from 'lodash/collection/filter'
+import pluck from 'lodash/collection/pluck'
+import uniq from 'lodash/array/uniq'
+import sortBy from 'lodash/collection/sortBy'
+
 import findMissingNumberBinarySearch from './findMissingNumberBinarySearch'
 
 /**
@@ -12,21 +17,21 @@ import findMissingNumberBinarySearch from './findMissingNumberBinarySearch'
  * @returns {Number} - the first available semester slot
  */
 function findFirstAvailableSemester(schedules, forYear) {
-	let semesters = _(schedules.toJS ? schedules.toJS() : schedules)
-		.filter({year: forYear})
-		.pluck('semester')
-		.uniq()
-		// stick a 0 at the front so findBinary will start from 1
-		.unshift(0)
-		.sortBy()
-		.value()
+	let scheds = schedules.toJS ? schedules.toJS() : schedules
+	let thisYear = filter(scheds, {year: forYear})
+	let semesters = uniq(pluck(thisYear, 'semester'))
 
-	let missingNo = findMissingNumberBinarySearch(semesters)
+	// stick a 0 at the front so findBinary will start from 1
+	semesters.unshift(0)
+
+	let sortedSemesters = sortBy(semesters)
+
+	let missingNo = findMissingNumberBinarySearch(sortedSemesters)
 	if (missingNo !== null) {
 		return missingNo
 	}
 
-	return max(semesters) + 1
+	return max(sortedSemesters) + 1
 }
 
 export default findFirstAvailableSemester

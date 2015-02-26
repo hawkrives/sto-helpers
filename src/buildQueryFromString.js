@@ -1,16 +1,14 @@
-import {
-	isArray,
-	chain,
-	contains,
-	filter,
-	flatten,
-	map,
-	mapValues,
-	parseInt,
-	partition,
-	startsWith,
-	trim,
-	unzip} from 'lodash'
+import isArray from 'lodash/lang/isArray'
+import contains from 'lodash/collection/contains'
+import filter from 'lodash/collection/filter'
+import flatten from 'lodash/array/flatten'
+import map from 'lodash/collection/map'
+import mapValues from 'lodash/object/mapValues'
+import parseInt from 'lodash/string/parseInt'
+import partition from 'lodash/collection/partition'
+import startsWith from 'lodash/string/startsWith'
+import trim from 'lodash/string/trim'
+import unzip from 'lodash/array/unzip'
 
 import quacksLikeDeptNum from './quacksLikeDeptNum'
 import splitDeptNum from './splitDeptNum'
@@ -162,10 +160,7 @@ function buildQueryFromString(queryString='', opts={}) {
 	let matches = queryString.split(rex)
 
 	// Remove extra whitespace and remove empty strings
-	let cleaned = chain(matches)
-		.map(trim)
-		.filter(notEmptyString)
-		.value()
+	let cleaned = filter(map(trim, matches), notEmptyString)
 
 	// Grab the keys and values from the lists
 	let [keys, values] = partition(cleaned, evenIndex)
@@ -193,11 +188,7 @@ function buildQueryFromString(queryString='', opts={}) {
 	let zipped = zipToObjectWithArrays(keys, values)
 
 	// Perform initial cleaning of the values, dependent on the keys
-	let paired = chain(zipped)
-		.pairs()
-		.map(kvpairs => organizeValues(kvpairs, opts))
-		.unzip()
-		.value()
+	let paired = unzip(map(kvpairs => organizeValues(kvpairs, opts), pairs(zipped)))
 
 	let organized = zipToObjectWithArrays(...paired) // spread the [k, v] pairs into the arguments properly
 

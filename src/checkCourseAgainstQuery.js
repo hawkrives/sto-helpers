@@ -1,4 +1,16 @@
-import {curry, map, chain, indexOf, has, contains, isArray, any, all, compact, rest, pairs, takeWhile, size} from 'lodash'
+import all from 'lodash/collection/all'
+import any from 'lodash/collection/any'
+import compact from 'lodash/array/compact'
+import contains from 'lodash/collection/contains'
+import curry from 'lodash/function/curry'
+import has from 'lodash/object/has'
+import indexOf from 'lodash/array/indexOf'
+import isArray from 'lodash/lang/isArray'
+import map from 'lodash/collection/map'
+import pairs from 'lodash/object/pairs'
+import rest from 'lodash/array/rest'
+import size from 'lodash/collection/size'
+import takeWhile from 'lodash/array/takeWhile'
 
 let checkCourseAgainstQueryBit = curry((course, [key, values]) => {
 	if (!has(course, key)) {
@@ -35,9 +47,7 @@ let checkCourseAgainstQueryBit = curry((course, [key, values]) => {
 			return contains(course[key], val)
 		}
 		else if (isArray(course[key]) && substring) {
-			return chain(course[key])
-				.map(item => contains(item.toLowerCase(), val.toLowerCase()))
-				.any()
+			return any(map(course[key], item => contains(item.toLowerCase(), val.toLowerCase())))
 		}
 		else if (substring) {
 			return contains(course[key].toLowerCase(), val.toLowerCase())

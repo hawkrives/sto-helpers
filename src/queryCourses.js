@@ -1,4 +1,4 @@
-import {filter} from 'lodash'
+import filter from 'lodash/collection/filter'
 import checkCourseAgainstQuery from './checkCourseAgainstQuery'
 
 /**

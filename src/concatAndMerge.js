@@ -1,4 +1,6 @@
-import {isArray, isObject, merge} from 'lodash'
+import isArray from 'lodash/lang/isArray'
+import isObject from 'lodash/lang/isObject'
+import merge from 'lodash/object/merge'
 
 function concatAndMerge(a, b) {
 	if (isArray(a))

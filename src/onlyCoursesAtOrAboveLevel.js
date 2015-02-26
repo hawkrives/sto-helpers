@@ -1,4 +1,5 @@
-import {curry, filter} from 'lodash'
+import curry from 'lodash/function/curry'
+import filter from 'lodash/collection/filter'
 import coursesAtOrAboveLevel from './coursesAtOrAboveLevel'
 
 /**

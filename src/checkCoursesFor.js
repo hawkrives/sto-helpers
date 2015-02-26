@@ -1,4 +1,4 @@
-import {any} from 'lodash'
+import any from 'lodash/collection/any'
 
 /**
  * Checks if any courses in a list of courses pass a given lodash filter.

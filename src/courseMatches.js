@@ -1,4 +1,5 @@
-import {any, curry} from 'lodash'
+import any from 'lodash/collection/any'
+import curry from 'lodash/function/curry'
 
 /**
  * Checks if a course matches any qualifiers in a list of qualifiers.

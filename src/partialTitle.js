@@ -1,4 +1,7 @@
-import {curry, any, isArray, contains} from 'lodash'
+import curry from 'lodash/function/curry'
+import any from 'lodash/collection/any'
+import isArray from 'lodash/lang/isArray'
+import contains from 'lodash/collection/contains'
 
 /**
  * Checks if a course has a string in its title property.

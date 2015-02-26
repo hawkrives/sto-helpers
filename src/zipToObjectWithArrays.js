@@ -1,4 +1,6 @@
-import {reduce, zip, has} from 'lodash'
+import reduce from 'lodash/collection/reduce'
+import zip from 'lodash/array/zip'
+import has from 'lodash/object/has'
 
 let zipToObjectWithArrays = (keys, vals) => {
 	let arr = zip(keys, vals)

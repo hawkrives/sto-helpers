@@ -1,4 +1,7 @@
-import {curry, find, contains, all} from 'lodash'
+import all from 'lodash/collection/all'
+import contains from 'lodash/collection/contains'
+import curry from 'lodash/function/curry'
+import find from 'lodash/collection/find'
 
 /**
  * Takes a list of required courses and checks if a course matches.

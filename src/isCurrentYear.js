@@ -1,4 +1,5 @@
-import {curry, parseInt} from 'lodash'
+import curry from 'lodash/function/curry'
+import parseInt from 'lodash/string/parseInt'
 
 /**
  * Checks if a schedule is in a certain year.

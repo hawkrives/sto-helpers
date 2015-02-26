@@ -1,4 +1,6 @@
-import _ from 'lodash'
+import uniq from 'lodash/array/uniq'
+import flatten from 'lodash/array/flatten'
+import pluck from 'lodash/collection/pluck'
 
 /**
  * It plucks the departments from a list of courses, and returns the uniq'd list.
@@ -7,7 +9,7 @@ import _ from 'lodash'
  * @returns {Array<String>}
  */
 function getDepartments(courses) {
-	return _(courses).pluck('depts').flatten().uniq().value()
+	return uniq(flatten(pluck(courses, 'depts')))
 }
 
 export default getDepartments

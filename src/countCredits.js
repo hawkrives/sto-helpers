@@ -1,4 +1,6 @@
-import {_} from 'lodash'
+import compact from 'lodash/array/compact'
+import pluck from 'lodash/collection/pluck'
+import reduce from 'lodash/collection/reduce'
 import add from './add'
 
 
@@ -8,10 +10,8 @@ import add from './add'
  * @returns {Number} - the sum of the credits.
  */
 function countCredits(courses) {
-	return _(courses)
-		.compact()
-		.pluck('credits')
-		.reduce(add, 0)
+	let credits = pluck(compact(courses), 'credits')
+	return reduce(credits, add, 0)
 }
 
 export default countCredits

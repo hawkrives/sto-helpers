@@ -1,4 +1,6 @@
-import {curry, contains, startsWith} from 'lodash'
+import curry from 'lodash/function/curry'
+import contains from 'lodash/collection/contains'
+import startsWith from 'lodash/string/startsWith'
 import hasFOL from './hasFOL'
 
 /**

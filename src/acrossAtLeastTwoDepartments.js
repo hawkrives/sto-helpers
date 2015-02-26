@@ -1,4 +1,4 @@
-import {size} from 'lodash'
+import size from 'lodash/collection/size'
 import getDepartments from './getDepartments'
 
 /**

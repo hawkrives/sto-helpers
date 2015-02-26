@@ -1,4 +1,6 @@
-import {_, uniq} from 'lodash'
+import uniq from 'lodash/array/uniq'
+import filter from 'lodash/collection/filter'
+import size from 'lodash/collection/size'
 import hasGenEd from './hasGenEd'
 import hasFOL from './hasFOL'
 
@@ -13,13 +15,9 @@ function countGeneds(courses, gened) {
 	let uniqed = uniq(courses, 'crsid')
 
 	if (gened === 'FOL')
-		return _(uniqed)
-			.filter(hasFOL)
-			.size()
+		return size(filter(uniqed, hasFOL))
 
-	return _(uniqed)
-		.filter(hasGenEd(gened))
-		.size()
+	return size(filter(uniqed, hasGenEd(gened)))
 }
 
 export default countGeneds

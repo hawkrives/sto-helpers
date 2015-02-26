@@ -1,4 +1,7 @@
-import {any, all, curry, isUndefined} from 'lodash'
+import any from 'lodash/collection/any'
+import all from 'lodash/collection/all'
+import curry from 'lodash/function/curry'
+import isUndefined from 'lodash/lang/isUndefined'
 import hasDepartment from './hasDepartment'
 
 let hasDeptNumBetween = curry(({dept, start, end}={}, course) => {

@@ -1,5 +1,6 @@
 import {departmentNameToAbbr} from 'sto-course-related-data'
-import {map, has} from 'lodash'
+import map from 'lodash/collection/map'
+import has from 'lodash/object/has'
 
 /**
  * Builds a department string from a course.

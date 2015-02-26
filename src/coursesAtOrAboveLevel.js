@@ -1,4 +1,4 @@
-import {curry} from 'lodash'
+import curry from 'lodash/function/curry'
 
 /**
  * Checks if a course is at or above a given level.

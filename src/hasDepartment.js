@@ -1,4 +1,7 @@
-import {curry, contains, any, isArray} from 'lodash'
+import curry from 'lodash/function/curry'
+import contains from 'lodash/collection/contains'
+import any from 'lodash/collection/any'
+import isArray from 'lodash/lang/isArray'
 
 let checkIfHasDepartment = (dept, course) => {
 	return contains(course.depts, dept)
