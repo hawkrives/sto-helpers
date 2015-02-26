@@ -20,7 +20,7 @@
   "dependencies": {
     "babel-runtime": "^4.2.3",
     "combinations-generator": "^1.0.1",
-    "lodash": "^3.0.0",
+    "lodash": "^3.3.1",
     "sto-course-related-data": "^3.0.5"
   },
   "devDependencies": {
