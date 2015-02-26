@@ -1,4 +1,4 @@
-import parseInt from 'lodash/string/parseInt';
+import parseInt from 'lodash/string/parseInt'
 
 /**
  * Takes a year and expands it.
