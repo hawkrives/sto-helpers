@@ -161,7 +161,7 @@ function buildQueryFromString(queryString='', opts={}) {
 	let matches = queryString.split(rex)
 
 	// Remove extra whitespace and remove empty strings
-	let cleaned = filter(map(trim, matches), notEmptyString)
+	let cleaned = filter(map(matches, trim), notEmptyString)
 
 	// Grab the keys and values from the lists
 	let [keys, values] = partition(cleaned, evenIndex)
@@ -189,7 +189,7 @@ function buildQueryFromString(queryString='', opts={}) {
 	let zipped = zipToObjectWithArrays(keys, values)
 
 	// Perform initial cleaning of the values, dependent on the keys
-	let paired = unzip(map(kvpairs => organizeValues(kvpairs, opts), pairs(zipped)))
+	let paired = unzip(map(pairs(zipped), kvpairs => organizeValues(kvpairs, opts)))
 
 	let organized = zipToObjectWithArrays(...paired) // spread the [k, v] pairs into the arguments properly
 
