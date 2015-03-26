@@ -66,7 +66,7 @@ let keywordMappings = {
 	'profs': 'instructors',
 	'professor': 'instructors',
 	'professors': 'instructors',
-	'semester': 'sem',
+	'sem': 'semester',
 	'teacher': 'instructors',
 	'teachers': 'instructors',
 	'time': 'times',
