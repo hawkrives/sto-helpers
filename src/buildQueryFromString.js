@@ -56,19 +56,19 @@ let keywordMappings = {
 	'geneds': 'gereqs',
 	'gereq': 'gereqs',
 	'ges': 'gereqs',
-	'inst': 'profs',
-	'instructor': 'profs',
-	'instructors': 'profs',
+	'inst': 'instructors',
+	'instructor': 'instructors',
 	'location': 'places',
 	'locations': 'places',
 	'number': 'num',
 	'place': 'places',
-	'prof': 'profs',
-	'professor': 'profs',
-	'professors': 'profs',
+	'prof': 'instructors',
+	'profs': 'instructors',
+	'professor': 'instructors',
+	'professors': 'instructors',
 	'semester': 'sem',
-	'teacher': 'profs',
-	'teachers': 'profs',
+	'teacher': 'instructors',
+	'teachers': 'instructors',
 	'time': 'times',
 }
 
@@ -98,7 +98,7 @@ function organizeValues([key, values]=[], {words=false, profWords=false}={}) {
 			val = semesters[val] || parseInt(val)
 		}
 
-		else if (key === 'profs') {
+		else if (key === 'instructors') {
 			if (profWords) {
 				val = splitParagraph(val)
 				key = 'profWords'
