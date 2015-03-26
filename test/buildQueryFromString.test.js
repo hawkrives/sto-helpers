@@ -21,7 +21,7 @@ describe('buildQueryFromString', () => {
 			title: ['"Japan*"'],
 			level: [200],
 			year: [2014],
-			sem: ['$OR', 3, 1],
+			semester: ['$OR', 3, 1],
 		}
 
 		expect(buildQueryFromString(query)).to.eql(expectedResult)
@@ -43,7 +43,7 @@ describe('buildQueryFromString', () => {
 		let query = 'ges: $AND  geneds: history of western culture gened: HBS  semester: Spring  year: 2014'
 		let expectedResult = {
 			gereqs: ['$AND', 'HWC', 'HBS'],
-			sem: [3],
+			semester: [3],
 			year: [2014],
 		}
 

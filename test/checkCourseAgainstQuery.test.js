@@ -20,12 +20,12 @@ describe('checkCourseAgainstQuery', () => {
 			title: ['Japan'],
 			level: [200],
 			year: [2014],
-			sem: ['$OR', 3, 1],
+			semester: ['$OR', 3, 1],
 		}
 		let course = {
 			depts: ['ASIAN', 'REL'],
 			year: 2014,
-			sem: 1,
+			semester: 1,
 			level: 200,
 			title: 'Japan',
 		}
@@ -38,7 +38,7 @@ describe('checkCourseAgainstQuery', () => {
 			title: ['Japan'],
 			level: [200],
 			year: [2014],
-			sem: ['$OR', 3, 1],
+			semester: ['$OR', 3, 1],
 		}
 		let course = {
 			depts: ['ASIAN'],

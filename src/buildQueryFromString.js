@@ -93,7 +93,7 @@ function organizeValues([key, values]=[], {words=false, profWords=false}={}) {
 			val = val.toUpperCase()
 		}
 
-		else if (key === 'sem') {
+		else if (key === 'semester') {
 			val = val.toLowerCase()
 			val = semesters[val] || parseInt(val)
 		}
