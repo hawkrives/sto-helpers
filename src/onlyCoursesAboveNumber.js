@@ -13,4 +13,4 @@ let onlyCoursesAboveNumber = curry((number, courses) => {
 	return filter(courses, coursesAboveNumber(number))
 })
 
-export default coursesAboveNumber
+export default onlyCoursesAboveNumber
