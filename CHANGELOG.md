@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## 4.2.10
+- Switched JSCS for ESLint
+- Fixed some things that it pointed out
+- Finally added a basic README to make npm shut up
+- **Fixed:** Exported the correct function from `onlyCoursesAboveNumber`
+
+## 4.2.{6,7,8,9}
+- Fix little bits of the course field renaming from sto-courses@4.0.0
+
+## 4.2.5
+- Not much; updated deps
+
+## 4.2.4
+- Fix some bugs
+- Only import the bits of lodash that are actually used
+	- Should help reduce the size of the generated bundles of any code that depends on sto-helpers
+
 ## 4.2.3
 - **Fixed:** `buildQueryFromString`: Added `groupid`, `clbid`, and `crsid` to the list of keys to be turned into numbers
 - **Fixed:** `buildQueryFromString`: Turn `credits` into a float via parseFloat
