@@ -72,8 +72,7 @@ let keywordMappings = {
 	'time': 'times',
 }
 
-
-function organizeValues([key, values]=[], {words=false, profWords=false}={}) {
+function organizeValues([key, values], {words=false, profWords=false}={}) {
 	let organizedValues = map(values, (val) => {
 		if (startsWith(val, '$')) {
 			return val.toUpperCase()

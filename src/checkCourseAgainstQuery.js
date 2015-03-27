@@ -37,7 +37,7 @@ let checkCourseAgainstQueryBit = curry((course, [key, values]) => {
 		values = rest(values)
 	}
 
-	if (contains(['title', 'name', 'description', 'notes', 'instructors', 'times', 'places'], key)) {
+	if (contains(['title', 'name', 'description', 'notes', 'instructors', 'times', 'locations'], key)) {
 		substring = true
 	}
 
