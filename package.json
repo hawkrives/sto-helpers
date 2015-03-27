@@ -19,7 +19,7 @@
     "babel-runtime": "^4.7.16",
     "combinations-generator": "^1.0.1",
     "lodash": "^3.6.0",
-    "sto-course-related-data": "^3.0.6"
+    "sto-course-related-data": "^4.0.0"
   },
   "devDependencies": {
     "babel": "^4.7.16",
