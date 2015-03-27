@@ -35,7 +35,7 @@ let partialName = curry((partial, course) => {
  * @returns {Boolean}
  */
 let checkPartialNameOrTitle = curry((partial, course) => {
-	return any([partialTitle(partial, course), partialName(partial, course)])
+	return (partialTitle(partial, course) || partialName(partial, course))
 })
 
 
