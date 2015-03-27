@@ -1,4 +1,5 @@
 // copied from the npm package 'combinations-generator'
+import at from 'lodash/collection/at'
 
 let combinations = function* (array=[], count=0) {
 	let keys = []
@@ -12,9 +13,7 @@ let combinations = function* (array=[], count=0) {
 			for (let key = keys[index] - index + 1; index < count; index++) {
 				keys[index] = key + index
 			}
-			yield keys.map(function (c) {
-				return array[c]
-			})
+			yield at(array, keys)
 		}
 		else {
 			index--
