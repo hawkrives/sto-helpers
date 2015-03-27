@@ -58,10 +58,10 @@ let keywordMappings = {
 	'ges': 'gereqs',
 	'inst': 'instructors',
 	'instructor': 'instructors',
-	'location': 'places',
-	'locations': 'places',
+	'locations': 'location',
 	'number': 'num',
-	'place': 'places',
+	'place': 'location',
+	'places': 'location',
 	'prof': 'instructors',
 	'profs': 'instructors',
 	'professor': 'instructors',
@@ -105,7 +105,7 @@ function organizeValues([key, values]=[], {words=false, profWords=false}={}) {
 			}
 		}
 
-		else if (key === 'times' || key === 'places') {
+		else if (key === 'times' || key === 'locations') {
 			val = val.toUpperCase()
 		}
 
