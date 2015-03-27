@@ -70,7 +70,7 @@ function combinations(set, k) {
 		return [set]
 	}
 
-	else if (k == 1) {
+	else if (k === 1) {
 		let combs = []
 		for (let i = 0; i < set.length; i++) {
 			combs.push([set[i]])
