@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 4.2.11
+- Updated to Babel 5.0
+
 ## 4.2.10
 - Switched JSCS for ESLint
 - Fixed some things that it pointed out
