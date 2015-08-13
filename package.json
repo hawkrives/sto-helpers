@@ -16,13 +16,13 @@
     "watch-tests": "mocha --watch"
   },
   "dependencies": {
-    "babel-runtime": "^5.0.8",
+    "babel-runtime": "^5.8.20",
     "combinations-generator": "^1.0.1",
-    "lodash": "^3.6.0",
+    "lodash": "^3.10.1",
     "sto-course-related-data": "^4.0.0"
   },
   "devDependencies": {
-    "babel": "^5.0.8",
+    "babel": "^5.8.21",
     "babel-eslint": "^2.0.2",
     "chai": "^2.2.0",
     "eslint": "^0.18.0",

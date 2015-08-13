@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 4.2.12
+- Update Babel; re-publish with newer transpiled code
+
 ## 4.2.11
 - Updated to Babel 5.0
 
